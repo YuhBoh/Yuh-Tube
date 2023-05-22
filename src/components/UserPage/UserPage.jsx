@@ -2,7 +2,7 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 // import './styles/general.css';
-// import './styles/header.css';
+import './styles/header.css';
 // import './styles/sidebar.css';
 // import './styles/video.css';
 
@@ -15,6 +15,7 @@ function UserPage() {
       <div className="container">
         <h2>Welcome, {user.username}!</h2>
         <p>Your ID is: {user.id}</p>
+        <LogOutButton className="btn" />
       </div>
 
     {/* HEADER */}

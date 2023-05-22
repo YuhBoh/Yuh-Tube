@@ -42,8 +42,7 @@ function App() {
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
+            exact path="/about"
           >
             <AboutPage />
           </Route>
@@ -54,23 +53,20 @@ function App() {
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
+            exact path="/user"
           >
             <UserPage />
           </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
+            exact path="/info"
           >
             <InfoPage />
           </ProtectedRoute>
 
           <Route
-            exact
-            path="/login"
+            exact path="/login"
           >
             {user.id ?
               // If the user is already logged in, 
@@ -83,8 +79,7 @@ function App() {
           </Route>
 
           <Route
-            exact
-            path="/registration"
+            exact path="/registration"
           >
             {user.id ?
               // If the user is already logged in, 

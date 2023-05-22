@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import Upload from '../Upload/Upload';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -27,6 +28,10 @@ function Nav() {
             <Link className="navLink" to="/user">
               Home
             </Link>
+
+            <button className="navLink" onClick={(Upload)}>
+              Upload
+            </button>
 
             <Link className="navLink" to="/info">
               Info Page

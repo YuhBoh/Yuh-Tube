@@ -1,10 +1,10 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
-import './styles/general.css';
-import './styles/header.css';
-import './styles/sidebar.css';
-import './styles/video.css';
+// import './styles/general.css';
+// import './styles/header.css';
+// import './styles/sidebar.css';
+// import './styles/video.css';
 
 
 function UserPage() {
@@ -15,11 +15,10 @@ function UserPage() {
       <div className="container">
         <h2>Welcome, {user.username}!</h2>
         <p>Your ID is: {user.id}</p>
-        <LogOutButton className="btn" />
       </div>
 
     {/* HEADER */}
-    <div className="header">
+    {/* <div className="header">
       <div className="left-section">
         <img className="hamburger-menu" src="icons/hamburger-menu.svg" alt=""/>
         <img className="youtube-logo" src="icons/youtube-logo.svg" alt=""/>
@@ -55,7 +54,7 @@ function UserPage() {
         </div>
         <img className="current-user-picture" src="channel-pictures/my-channel.jpeg" alt=""/>
       </div>
-    </div>
+    </div> */}
     </>
 
   );

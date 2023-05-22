@@ -8,13 +8,14 @@ const Upload = ({ closeModal }) => {
 
   const [urlInput, setUrlInput] = useState('');
 
-  const handleClick = () => {
-    addUrl;
-  }
-
-  const addUrl = event => {
+  const addUrl = (event) => {
     event.preventDefault();
-    dispatch({ type: 'ADD_URL', payload: urlInput });
+
+    dispatch({ 
+      type: 'SAGA/ADD_URL', 
+      payload: urlInput 
+    });
+    console.log('urlInput:', urlInput);
   }
 
   
@@ -30,7 +31,7 @@ const Upload = ({ closeModal }) => {
               <h1>Upload Video</h1>
             </div>
             <div className='body'>
-              <form onSubmit={addUrl}>
+              <form>
                 <input type='text' 
                      placeholder='url'
                      value={urlInput}
@@ -40,7 +41,7 @@ const Upload = ({ closeModal }) => {
               
             </div>
             <div className='footer'>
-             <button onClick={handleClick}>SUBMIT</button>  
+             <button onClick={addUrl}>SUBMIT</button>  
             </div>
            
           </div>

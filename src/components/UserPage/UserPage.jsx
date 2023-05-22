@@ -18,6 +18,9 @@ function UserPage() {
         <LogOutButton className="btn" />
       </div>
 
+      <div className="video-grid">
+        SAGA 
+      </div>
     {/* HEADER */}
     {/* <div className="header">
       <div className="left-section">

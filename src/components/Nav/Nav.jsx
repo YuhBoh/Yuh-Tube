@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { React, useState } from 'react';
+import { Link, Route } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import Upload from '../Upload/Upload';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="nav">
@@ -29,9 +30,12 @@ function Nav() {
               Home
             </Link>
 
-            <button className="navLink" onClick={(Upload)}>
+            <Link onClick ={() => {setOpenModal(true);}}    
+                  className="navLink" 
+                  to="/user">
               Upload
-            </button>
+            </Link>
+            {openModal && <Upload closeModal={setOpenModal} />}
 
             <Link className="navLink" to="/info">
               Info Page

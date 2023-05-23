@@ -18,13 +18,15 @@ function* postUrl(action) {
 function* getUrl(action) {
   console.log("getUrl err:");
   try {
-    yield axios.get("/api/url");
-    console.log("test");
-    console.log("response.data:", response.data);
+    const response = yield axios.get("/api/url");
+    const theUrls = response.data;
+    console.log("response.data:", theUrls);
+
     yield put({
       type: "REDUX/GET_URLS",
-      payload: response.data,
+      payload: theUrls,
     });
+
   } catch (error) {
     console.log("User get request failed", error);
   }

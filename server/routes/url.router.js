@@ -1,17 +1,16 @@
 const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
-const { rejectUnauthenticated } = require("../modules/authentication-middleware");
 
 /**
  * GET route template
  */
-router.get("/", rejectUnauthenticated, (req, res) => {
+router.get("/", (req, res) => {
   // GET route code here
-  const videoId = req.user.id;
-
-  const sqlQuery = `
-  `;
+  const query = `SELECT * FROM "video";`,
+  pool
+    .query(query)
+    .then(result => )
 });
 
 /**
@@ -35,9 +34,11 @@ router.post("/", (req, res) => {
     .query(sqlText, sqlValues)
     .then((dbRes) => {
       res.sendStatus(201);
+      console.log('dbRes:');
     })
     .catch((dbErr) => {
       console.log("error posting to DB", dbErr);
+      res.sendStatus(500);
     });
 
 });

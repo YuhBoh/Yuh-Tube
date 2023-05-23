@@ -1,7 +1,5 @@
-const urlReducer = (state = [], action) => {
+const url = (state = [], action) => {
     switch (action.type) {
-      case "REDUX/ADD_URL":
-        return action.payload;
       case "REDUX/GET_URLS":
         return action.payload;
       default:
@@ -9,4 +7,4 @@ const urlReducer = (state = [], action) => {
     }
 }
 
-export default urlReducer;
+export default url;

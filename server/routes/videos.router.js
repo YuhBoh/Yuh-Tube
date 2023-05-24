@@ -8,26 +8,26 @@ const router = express.Router();
 router.get("/", (req, res) => {
   // FINISH GET route code here: IN PROGRESS
   // COMES FROM URL.SAGA.JS
-  const userId = req.user.id;
-  console.log('req.user.id:', req.user.id);
+
+  // const userId = req.user.id; NOT YET
+  // console.log('req.user.id:', req.user.id); NOT YET
 
   const sqlQuery = `
-  SELECT video_url 
+  SELECT id, video_url 
   FROM "video"
-  WHERE "id"=$1;
-  `
+  `;
 
-  const sqlValues = [userId];
+  // const sqlValues = [userId]; NOT YET
 
   pool
-    .query(sqlQuery, sqlValues)
-    .then(dbRes => {
+    .query(sqlQuery)
+    .then((dbRes) => {
       res.send(dbRes.rows);
       // console.log("dbRes.rows:", dbRes.rows); LOOK IN SERVER TERMINAL WORKS
     })
-    .catch(dbErr => {
-      console.log('GET /api/videos fail:', dbErr);
-    })
+    .catch((dbErr) => {
+      console.log("GET /api/videos fail:", dbErr);
+    });
 });
 
 /*
@@ -56,7 +56,6 @@ router.post("/", (req, res) => {
       console.log("error posting to DB", dbErr);
       res.sendStatus(500);
     });
-
 });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 // import './styles/general.css';
 import './styles/header.css';
 // import './styles/sidebar.css';
@@ -9,8 +10,18 @@ import VideosList from './VideosList';
 
 
 function UserPage() {
+  useEffect(() => {
+    dispatch({
+      type: 'SAGA/GET_URLS'
+    })
+  }, [])
+  
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="container">

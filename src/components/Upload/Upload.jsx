@@ -13,7 +13,7 @@ const Upload = ({ closeModal }) => {
 
     dispatch({ 
       type: 'SAGA/ADD_URL', 
-      payload: {urlInput} 
+      payload: urlInput 
     });
     console.log('urlInput:', urlInput);
   }

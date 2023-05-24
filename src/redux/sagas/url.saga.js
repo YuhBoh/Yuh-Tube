@@ -2,7 +2,7 @@ import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-// Adds URL to the database
+// Adds URL to the database. Will do round trip but will not return anything.
 function* postUrl(action) {
   console.log("action.payload:", action.payload);
   try {
@@ -34,7 +34,7 @@ function* getUrl(action) {
 
 function* postUrlSaga() {
   yield takeLatest("SAGA/ADD_URL", postUrl),
-    yield takeLatest("SAGA/GET_URLS", getUrl);
+  yield takeLatest("SAGA/GET_URLS", getUrl);
 }
 
 export default postUrlSaga;

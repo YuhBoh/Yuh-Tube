@@ -2,22 +2,34 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-/**
- * GET route template
+/*
+ * GET route
  */
 router.get("/", (req, res) => {
-  // GET route code here
-  const query = `SELECT * FROM "video";`,
+  // FINISH GET route code here: IN PROGRESS
+  // COMES FROM URL.SAGA.JS
+  const sqlQuery = `
+  SELECT * FROM "video"
+  WHERE "user_id"=$1;
+  `
+
+  const sqlValues = [userId];
+
   pool
-    .query(query)
-    .then(result => )
+    .query(sqlQuery, sqlValues)
+    .then(dbRes => {
+      res.send(dbRes.rows);
+    })
+    .catch( dbErr => {
+      console.log('GET /api/url fail:', dbErr);
+    })
 });
 
-/**
+/*
  * POST route template
  */
 router.post("/", (req, res) => {
-  // POST route code here
+  // FINISH POST route code here: FINISHED
   const url = req.body.videoUrl;
   console.log("URL:", url);
 

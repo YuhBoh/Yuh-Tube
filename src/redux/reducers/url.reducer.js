@@ -1,4 +1,4 @@
-const url = (state = [], action) => {
+const urlReducer = (state = [], action) => {
     switch (action.type) {
       case "REDUX/GET_URLS":
         return action.payload;
@@ -7,4 +7,4 @@ const url = (state = [], action) => {
     }
 }
 
-export default url;
+export default urlReducer;

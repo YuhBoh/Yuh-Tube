@@ -14,13 +14,16 @@ CREATE TABLE user_profile (
 	profile_pic Varchar (255) Not Null,
 	channel_name Varchar (255) Not Null,
 	about Varchar (255) Not Null,
-	user_id Integer
+	user_id int,
+	FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
 
 CREATE TABLE user_profile_video (
 	id SERIAL PRIMARY KEY,
-	user_profile_id Integer,
-	user_id Integer
+	user_profile_id int, 
+	foreign key (user_profile_id) references user_profile(id),
+	video_id int, 
+	foreign key (video_id) references video(id)
 );
 
 CREATE TABLE video (
@@ -37,11 +40,14 @@ CREATE TABLE video (
 CREATE TABLE playlist (
 	id SERIAL PRIMARY KEY,
 	playlist_name Varchar (255),
-	user_profile_id Integer
+	user_profile_id int, 
+	foreign key (user_profile_id) references user_profile(id)
 );
 
 CREATE TABLE playlist_video (
 	id SERIAL PRIMARY KEY,
-	playlist_id integer,
-	video_id integer
+	playlist_id int, 
+	foreign key (playlist_id) references playlist(id),
+	video_id int, 
+	foreign key (video_id) references video(id)
 );

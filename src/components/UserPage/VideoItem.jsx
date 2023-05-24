@@ -5,7 +5,7 @@ export default function VideoItem({video}) {
 
   return (
     <li>
-      {video.video_url}
+      <a href={video.video_url}>{video.video_url}</a>
     </li>
   )
 }

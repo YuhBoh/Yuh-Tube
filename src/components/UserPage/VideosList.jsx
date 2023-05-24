@@ -18,7 +18,9 @@ export default function VideosList() {
     <ul>
       {
         videos.map(video => {
-          return <VideoItem key={video.id} video={video} />
+          return (
+            <VideoItem key={video.id} video={video} />
+          )
         })
       }
     </ul>

@@ -58,4 +58,26 @@ router.post("/", (req, res) => {
     });
 });
 
+// DELETE ROUTE
+router.delete("/:id", (req, res) => {
+  const videoId = req.params.id;
+  // console.log("req.params.id:", video); WORKS
+
+  const sqlText = `
+  DELETE FROM "video"
+  WHERE id=$1
+  `;
+  const sqlValues = [videoId];
+
+  pool
+    .query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(201);
+    })
+    .catch((dbErr) => {
+      console.log("error deleting from DB:", dbErr);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

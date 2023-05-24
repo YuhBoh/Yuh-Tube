@@ -25,15 +25,24 @@ function* getVideos() {
       type: "REDUX/GET_URLS",
       payload: theVideos,
     });
-
   } catch (error) {
     console.log("User get request failed", error);
   }
 }
 
+function* deleteVideos(action) {
+  //Since we had id in VideoItem. It will come as action.
+  try {
+    yield axios.delete(`/api/videos/${action.payload}`);
+  } catch (error) {
+    console.log("User delete request failed", error);
+  }
+}
+
 function* postVideosSaga() {
   yield takeLatest("SAGA/ADD_URL", postVideos),
-  yield takeLatest("SAGA/GET_URLS", getVideos);
+  yield takeLatest("SAGA/GET_URLS", getVideos),
+  yield takeLatest("SAGA/DELETE_VIDEOS", deleteVideos)
 }
 
 export default postVideosSaga;

@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// IMPORT VIDEOITEM.JSX
+import VideoItem from './VideoItem';
 
 export default function VideosList() {
   useEffect(() => {
@@ -15,7 +17,9 @@ export default function VideosList() {
   return (
     <ul>
       {
-        <h1>hi</h1>
+        videos.map(video => {
+          return <VideoItem key={video.id} video={video} />
+        })
       }
     </ul>
   )

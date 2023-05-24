@@ -35,7 +35,7 @@ router.get("/", (req, res) => {
  */
 router.post("/", (req, res) => {
   // FINISH POST route code here: FINISHED
-  const url = req.body.videoUrl;
+  const video = req.body.videoUrl;
   // console.log("URL:", url); LOOK IN SERVER TERMINAL WORKS
 
   const sqlText = `
@@ -45,7 +45,7 @@ router.post("/", (req, res) => {
   ($1)
   `;
 
-  const sqlValues = [url];
+  const sqlValues = [video];
 
   pool
     .query(sqlText, sqlValues)

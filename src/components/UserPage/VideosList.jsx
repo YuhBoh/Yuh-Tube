@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-function VideosList() {
+export default function VideosList() {
   useEffect(() => {
     dispatch({
       type: 'FETCH_VIDEOS'
@@ -10,11 +10,14 @@ function VideosList() {
 
   const dispatch = useDispatch();
 
+  const videos = useSelector((store) => store.videos)
+
   return (
     <ul>
       {
-        
+        <h1>hi</h1>
       }
     </ul>
   )
 }
+

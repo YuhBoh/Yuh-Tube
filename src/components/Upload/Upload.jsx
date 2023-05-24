@@ -6,14 +6,14 @@ import { useDispatch } from 'react-redux';
 const Upload = ({ closeModal }) => {
   const dispatch = useDispatch();
 
-  const [urlInput, setUrlInput] = useState('');
+  const [videosInput, setVideosInput] = useState('');
 
-  const addUrl = (event) => {
+  const addVideos = (event) => {
     event.preventDefault();
 
     dispatch({ 
       type: 'SAGA/ADD_URL', 
-      payload: urlInput 
+      payload: videosInput 
     });
     // console.log('urlInput:', urlInput); POST WORKS
   }
@@ -34,14 +34,14 @@ const Upload = ({ closeModal }) => {
               <form>
                 <input type='text' 
                      placeholder='url'
-                     value={urlInput}
-                     onChange={event => setUrlInput(event.target.value)}>
+                     value={videosInput}
+                     onChange={event => setVideosInput(event.target.value)}>
                 </input>
               </form>
               
             </div>
             <div className='footer'>
-             <button onClick={addUrl}>SUBMIT</button>  
+             <button onClick={addVideos}>SUBMIT</button>  
             </div>
            
           </div>

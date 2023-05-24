@@ -3,10 +3,10 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 
 // Adds URL to the database. Will do round trip but will not return anything.
-function* postUrl(action) {
+function* postVideos(action) {
   // console.log("action.payload:", action.payload); POST WORKS
   try {
-    yield axios.post("/api/url", { videoUrl: action.payload });
+    yield axios.post("/api/videos", { videoUrl: action.payload });
     // console.log("RES:"); POST WORKS
     yield put({ type: "SAGA/GET_URLS" }); // run the getURL saga
   } catch (error) {
@@ -15,15 +15,15 @@ function* postUrl(action) {
 }
 
 // Get list of URLs from the database
-function* getUrl() {
+function* getVideos() {
   try {
-    const response = yield axios.get("/api/url");
-    const theUrls = response.data;
-    console.log("response.data:", theUrls);
+    const response = yield axios.get("/api/videos");
+    const theVideos = response.data;
+    console.log("response.data:", theVideos);
 
     yield put({
       type: "REDUX/GET_URLS",
-      payload: theUrls,
+      payload: theVideos,
     });
 
   } catch (error) {
@@ -31,9 +31,9 @@ function* getUrl() {
   }
 }
 
-function* postUrlSaga() {
-  yield takeLatest("SAGA/ADD_URL", postUrl),
-  yield takeLatest("SAGA/GET_URLS", getUrl);
+function* postVideosSaga() {
+  yield takeLatest("SAGA/ADD_URL", postVideos),
+  yield takeLatest("SAGA/GET_URLS", getVideos);
 }
 
-export default postUrlSaga;
+export default postVideosSaga;

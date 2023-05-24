@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
   const sqlQuery = `
   SELECT video_url 
   FROM "video"
-  WHERE "user_id"=$1;
+  WHERE "id"=$1;
   `
 
   const sqlValues = [userId];
@@ -23,10 +23,10 @@ router.get("/", (req, res) => {
     .query(sqlQuery, sqlValues)
     .then(dbRes => {
       res.send(dbRes.rows);
-      console.log("dbRes.rows:", dbRes.rows);
+      // console.log("dbRes.rows:", dbRes.rows); LOOK IN SERVER TERMINAL WORKS
     })
     .catch(dbErr => {
-      console.log('GET /api/url fail:', dbErr);
+      console.log('GET /api/videos fail:', dbErr);
     })
 });
 
@@ -36,7 +36,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   // FINISH POST route code here: FINISHED
   const url = req.body.videoUrl;
-  console.log("URL:", url);
+  // console.log("URL:", url); LOOK IN SERVER TERMINAL WORKS
 
   const sqlText = `
   INSERT INTO "video"
@@ -51,7 +51,6 @@ router.post("/", (req, res) => {
     .query(sqlText, sqlValues)
     .then((dbRes) => {
       res.sendStatus(201);
-      console.log('dbRes:');
     })
     .catch((dbErr) => {
       console.log("error posting to DB", dbErr);

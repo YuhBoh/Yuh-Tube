@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import './styles/header.css';
 // import './styles/sidebar.css';
 // import './styles/video.css';
+import VideosList from './VideosList';
 
 
 function UserPage() {
@@ -19,6 +20,7 @@ function UserPage() {
 
       <div className="video-grid">
         <h3>Videos go here</h3>
+        <VideosList />
       </div>
     {/* HEADER */}
     {/* <div className="header">

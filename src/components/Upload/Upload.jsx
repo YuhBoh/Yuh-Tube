@@ -15,7 +15,7 @@ const Upload = ({ closeModal }) => {
       type: 'SAGA/ADD_URL', 
       payload: urlInput 
     });
-    console.log('urlInput:', urlInput);
+    // console.log('urlInput:', urlInput); POST WORKS
   }
 
   

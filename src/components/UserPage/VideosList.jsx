@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // IMPORT VIDEOITEM.JSX
 import VideoItem from './VideoItem';

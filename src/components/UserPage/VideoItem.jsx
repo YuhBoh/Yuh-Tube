@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Nav/Nav.css'; //Will make own css later
 import './VideoItem.css';
-import Playlist from './Playlist';
+import VideoOptions from '../VideoOptions/VideoOptions';
 import { useHistory } from 'react-router-dom';
 
 
@@ -20,8 +20,8 @@ export default function VideoItem({video}) {
         </button>
       </div>
 
-      {openModal && <Playlist closeModal={setOpenModal} 
-                              video={video}/>}
+      {openModal && <VideoOptions closeModal={setOpenModal} 
+       video={video}/>}
     </li>
   )
 }

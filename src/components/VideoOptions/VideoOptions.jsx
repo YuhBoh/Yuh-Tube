@@ -1,16 +1,10 @@
+import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import "./Playlist.css";
+import "./VideoOptions.css";
 
-export default function Playlist({closeModal, video}) {
+export default function VideoOptions({closeModal, video}) {
   const dispatch = useDispatch();
-
-  const addToPlaylist = (event) => {
-    event.preventDefault();
-
-    dispatch({
-      type: 'SAGA/ADD_PLAYLIST'
-    });
-  }
+  const [openModal, setOpenModal] = useState(false);
 
   function deleteVideos(id) {
   // console.log("video.id:", video.id); DELETE VIDEO WORKS
@@ -32,13 +26,15 @@ export default function Playlist({closeModal, video}) {
             <button onClick={() => closeModal(false)}> X </button>
           </div>
           <div className="title2">
-            <p>Playlist</p>
+            <p>Options</p>
           </div>
           <div>
             <div>
-             <button onClick={addToPlaylist}>
-                Playlist
-              </button> 
+                <button onClick ={() => {setOpenModal(true);}}>
+                  Save
+                </button>
+                {openModal && <VideoPlaylist closeModal={setOpenModal} />}
+              
             </div>
             <div>
               <button onClick={() => deleteVideos(video.id)}>

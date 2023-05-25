@@ -24,11 +24,6 @@ function UserPage() {
 
   return (
     <>
-      <div className="container">
-        <h2>Welcome, {user.username}!</h2>
-        <p>Your ID is: {user.id}</p>
-      </div>
-
       <div className="video-grid">
         <h3>Videos go here</h3>
         <VideosList />

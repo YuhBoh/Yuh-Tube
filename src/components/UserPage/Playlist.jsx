@@ -1,8 +1,7 @@
-import React from 'react';
-import "./Playlist.css";
 import { useDispatch } from 'react-redux';
+import "./Playlist.css";
 
-export default function Playlist({closeModal}) {
+export default function Playlist({closeModal, video}) {
   const dispatch = useDispatch();
 
   const addToPlaylist = (event) => {
@@ -27,17 +26,26 @@ export default function Playlist({closeModal}) {
 
   return (
     <>
-      <div className='modalBackground'>
-        <div className='modalContainer'>
-          <div className='closeBtn'>
+      <div className="modalBackground2">
+        <div className="modalContainer2">
+          <div className="titleCloseBtn2">
             <button onClick={() => closeModal(false)}> X </button>
           </div>
-          <div className='body'>
-            <button onClick={addToPlaylist}>SUBMIT</button>
+          <div className="title2">
+            <p>Playlist</p>
           </div>
-          <button onClick={() => deleteVideos(video.id)}>
-            DELETE
-          </button>
+          <div>
+            <div>
+             <button onClick={addToPlaylist}>
+                Playlist
+              </button> 
+            </div>
+            <div>
+              <button onClick={() => deleteVideos(video.id)}>
+                Delete
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>

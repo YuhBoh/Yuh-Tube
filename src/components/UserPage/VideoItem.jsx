@@ -1,30 +1,25 @@
+import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../Nav/Nav.css'; //Will make own css later
+import Playlist from './Playlist';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
 
 export default function VideoItem({video}) {
 
-  // const history = useHistory(); ??
-  const dispatch = useDispatch();
-
-
-  function deleteVideos(id) {
-    // console.log("video.id:", video.id); DELETE VIDEO WORKS
-    dispatch({
-      type: 'SAGA/DELETE_VIDEOS',
-      payload: id
-    });
-
-    dispatch({
-      type: 'SAGA/GET_URLS'
-    });
-  }
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <li>
       <a href={video.video_url}>
         {video.video_url}
       </a>
-      <button onClick={() => deleteVideos(video.id)}>DELETE</button>
+      <Link onClick={() => {setOpenModal(true);}}
+            className="navLink"
+            to="/user">
+        ...
+      </Link>
+      {openModal && <Playlist closeModal={setOpenModal} />}
     </li>
   )
 }

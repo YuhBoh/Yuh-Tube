@@ -5,10 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 export default function VideoPlaylistList() {
 
   return (
-  <div>
-    Playlist1
-  </div>
-
+    <>
+    </>
   )
 
 };

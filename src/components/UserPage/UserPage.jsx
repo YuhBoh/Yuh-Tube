@@ -23,7 +23,7 @@ function UserPage() {
     <>
       <div className="video-grid">
         <h3>Videos go here</h3>
-        <VideosList />
+        <VideosList user={user}/>
       </div>
     {/* HEADER */}
     {/* <div className="header">

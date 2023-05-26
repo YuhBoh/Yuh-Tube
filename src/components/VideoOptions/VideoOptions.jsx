@@ -5,7 +5,7 @@ import "./VideoOptions.css";
 import VideoPlaylist from '../VideoPlaylist/VideoPlaylist';
 
 
-export default function VideoOptions({video}) {
+export default function VideoOptions({video}, {user}) {
   const dispatch = useDispatch();
   // for pop-up; currently false
   const [modal, setModal] = useState(false);
@@ -54,7 +54,8 @@ export default function VideoOptions({video}) {
         
             {/* When clicked will open 2nd modal and close first modal. */}
             <div>
-              <VideoPlaylist video={video}/>
+              <VideoPlaylist video={video} 
+                             user={user}/>
             </div>
 
         

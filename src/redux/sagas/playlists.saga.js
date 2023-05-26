@@ -1,12 +1,14 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 // adds playlist to db. Will roundtrip but not return anything except "oks".
 function* postPlaylist(action) {
   // console.log("action.payload:", action.payload); POST WORKS (look in action)
   // console.log("playlist:", playlist); VARIABLE WORKS
   try {
-    yield axios.post("/api/playlists", { playlist: action.payload });
+    yield axios.post("/api/playlists/", { 
+      playlist: action.payload});
   } catch (error) {
     console.log("Playlist post request failed", error);
   }

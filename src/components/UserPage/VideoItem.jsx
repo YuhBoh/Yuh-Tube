@@ -3,7 +3,7 @@ import '../Nav/Nav.css'; //Will make own css later
 import VideoOptions from '../VideoOptions/VideoOptions';
 
 
-export default function VideoItem({video}) {
+export default function VideoItem({video}, {user}) {
 
   return (
     <li>
@@ -11,7 +11,7 @@ export default function VideoItem({video}) {
         {video.video_url}
       </a>
       <div>   
-        <VideoOptions video={video}/>
+        <VideoOptions video={video} user={user}/>
       </div>
     </li>
   )

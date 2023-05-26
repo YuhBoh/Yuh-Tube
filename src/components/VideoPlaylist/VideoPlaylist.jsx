@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import "./VideoPlaylist.css";
 import VideoPlaylistList from './VideoPlaylistList';
 
-export default function VideoPlaylist({video}) {
+export default function VideoPlaylist({video}, {user}) {
   // to reload component to show cuurent playlist???
   useEffect(() => {
     dispatch({
@@ -17,14 +17,14 @@ export default function VideoPlaylist({video}) {
   const [modal, setModal] = useState(false);
 
   // create state for playlist
-  const [playlistInput, setPlaylistInput] = useState('');
+  const [playlistInput, setPlaylistInput] = useState([]);
 
   // function to toggle state of modal
   const toggleModal = () => {
     setModal(!modal)
   }
 
-  // function to add playlist(s)
+  // function to add playlist(s). id comes from addPlaylist(user.id) below
   const addPlaylist = (event) => {
     event.preventDefault();
 

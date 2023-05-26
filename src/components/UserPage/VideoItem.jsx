@@ -1,13 +1,9 @@
 import { React, useState } from 'react';
 import '../Nav/Nav.css'; //Will make own css later
-import './VideoItem.css';
 import VideoOptions from '../VideoOptions/VideoOptions';
-import { useHistory } from 'react-router-dom';
 
 
 export default function VideoItem({video}) {
-  // for first pop-up; currently false
-  const [openModal, setOpenModal] = useState(false);
 
   return (
     <li>
@@ -15,7 +11,7 @@ export default function VideoItem({video}) {
         {video.video_url}
       </a>
       <div>   
-        <VideoOptions />
+        <VideoOptions video={video}/>
       </div>
     </li>
   )

@@ -5,12 +5,17 @@ import "./VideoOptions.css";
 import VideoPlaylist from '../VideoPlaylist/VideoPlaylist';
 
 
-export default function VideoOptions({closeModal, video}) {
+export default function VideoOptions({video}) {
   const dispatch = useDispatch();
-  // for second pop-up; currently false
+  // for pop-up; currently false
   const [modal, setModal] = useState(false);
 
+  // function to toggle state of modal
+  const toggleModal = () => {
+    setModal(!modal)
+  }
 
+  //function to delete videos from db and render results
   function deleteVideos(id) {
   // console.log("video.id:", video.id); DELETE VIDEO WORKS
     dispatch({
@@ -21,15 +26,12 @@ export default function VideoOptions({closeModal, video}) {
     dispatch({
       type: 'SAGA/GET_URLS'
     });
-}
-
-  const toggleModal = () => {
-    setModal(!modal)
   }
 
   return (
     <>
-      <button onClick={() => {toggleModal}}>
+      <button 
+      onClick={toggleModal}>
         ...
       </button>
 
@@ -37,32 +39,36 @@ export default function VideoOptions({closeModal, video}) {
       {modal && (
         <div className="modalBackground2">
           <div className="modalContainer2">
+
             <div className="titleCloseBtn2">
               {/* When clicked, will close modal */}
-              <button onClick={toggleModal}> X </button>
+              <button 
+              onClick={toggleModal}
+              >X 
+              </button>
             </div>
+
             <div className="title2">
               <p>Options</p>
             </div>
+        
+            {/* When clicked will open 2nd modal and close first modal. */}
             <div>
-              <div>
-                  {/* When clicked will open 2nd modal and close first modal. */}
-                <Link onClick ={() => {setModal(true);}}    
-                      to="/info">
-                  Save
-                </Link>
-              </div>
-              <div>
-                <button onClick={() => deleteVideos(video.id)}>
-                  Delete
-                </button>
-              </div>
+              <VideoPlaylist video={video}/>
             </div>
+
+        
+            {/* Button to run deleteVideos function */}
+            <div>
+              <button onClick={() => deleteVideos(video.id)}>
+                Delete
+              </button>
+            </div>
+
           </div>
         </div>
         )
       }
-      
     </>
   )
 }

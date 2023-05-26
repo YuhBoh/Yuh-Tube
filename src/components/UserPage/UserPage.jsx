@@ -1,13 +1,11 @@
-import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import { useEffect } from 'react';
+import { React, useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 // import './styles/general.css';
 import './styles/header.css';
 // import './styles/sidebar.css';
 // import './styles/video.css';
 import VideosList from './VideosList';
-
 
 function UserPage() {
   useEffect(() => {
@@ -18,7 +16,6 @@ function UserPage() {
   
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
-
 
   const dispatch = useDispatch();
 

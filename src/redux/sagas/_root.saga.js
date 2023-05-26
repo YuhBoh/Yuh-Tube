@@ -3,6 +3,7 @@ import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import postVideosSaga from './videos.saga';
+import playlistsSaga from './playlists.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -17,5 +18,8 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     postVideosSaga(),
+    playlistsSaga(),
   ]);
 }
+
+// GO TO SERVER.JS TO ESTABLISH ROUTE

@@ -1,29 +1,39 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import "./VideoPlaylist.css";
 import VideoPlaylistList from './VideoPlaylistList';
 
 export default function VideoPlaylist({video}) {
+  // to reload component to show cuurent playlist???
+  useEffect(() => {
+    dispatch({
+      type: 'SAGA/GET_PLAYLISTS'
+    })
+  }, [])
+
   const dispatch = useDispatch();
   
   // for pop-up; currently false
   const [modal, setModal] = useState(false);
+
+  // create state for playlist
+  const [playlistInput, setPlaylistInput] = useState('');
 
   // function to toggle state of modal
   const toggleModal = () => {
     setModal(!modal)
   }
 
-  // function to add links to a playlist(s)
-  const addToPlaylist = (event) => {
-  event.preventDefault();
-    // calls dispatch to SAGA
+  // function to add playlist(s)
+  const addPlaylist = (event) => {
+    event.preventDefault();
+
+    // calls dispatch to SAGA and sends playlistInput
     dispatch({
       type: 'SAGA/ADD_PLAYLIST',
-      payload: id
+      payload: playlistInput
     });
-
-    // maybe another SAGA dispatch to get playlist? 
+    // console.log("playlistInput:", playlistInput); POST WORKS
   }
 
   return (
@@ -51,11 +61,21 @@ export default function VideoPlaylist({video}) {
               <VideoPlaylistList />
             </div>
   
-            {/* Click here to create new playlist */}
+            {/* Click here to create(POST/GET) new playlist */}
             <div>
               Create Playlist
-              <input className="playlist-input" type="text" placeholder="Enter playlist name..."
-              pattern="[^<>]*" maxLength="150"/>
+              <input className="playlist-input"
+                     type="text" 
+                     placeholder="Enter playlist name..."
+                     value={playlistInput}
+                     onChange={event => setPlaylistInput(event.target.value)}>
+              </input>
+            </div>
+
+            <div>
+              <button onClick={addPlaylist}
+              >SUBMIT
+              </button>
             </div>
    
           </div>
@@ -64,5 +84,4 @@ export default function VideoPlaylist({video}) {
       }
     </>
   )
-
 }

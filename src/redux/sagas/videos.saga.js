@@ -1,6 +1,5 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 
 // Adds URL to the database. Will do round trip but will not return anything.
 function* postVideos(action) {

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import { React, useState } from 'react';
 import "./Upload.css";
 import { useDispatch } from 'react-redux';
 
@@ -17,8 +16,6 @@ const Upload = ({ closeModal }) => {
     });
     // console.log('urlInput:', urlInput); POST WORKS
   }
-
-  
 
     return (
       <>
@@ -41,7 +38,9 @@ const Upload = ({ closeModal }) => {
               
             </div>
             <div className='footer'>
-             <button onClick={addVideos}>SUBMIT</button>  
+             <button onClick={addVideos}
+             >SUBMIT
+             </button>  
             </div>
            
           </div>

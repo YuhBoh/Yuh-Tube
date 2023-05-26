@@ -36,7 +36,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   // FINISH POST route code here: FINISHED
   const video = req.body.videoUrl;
-  // console.log("URL:", url); LOOK IN SERVER TERMINAL WORKS
+  // console.log("URL:", video); LOOK IN SERVER TERMINAL WORKS
 
   const sqlText = `
   INSERT INTO "video"

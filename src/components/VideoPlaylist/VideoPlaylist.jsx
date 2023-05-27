@@ -5,11 +5,11 @@ import VideoPlaylistList from './VideoPlaylistList';
 
 export default function VideoPlaylist({video}, {user}) {
   // to reload component to show cuurent playlist???
-  useEffect(() => {
-    dispatch({
-      type: 'SAGA/GET_PLAYLISTS'
-    })
-  }, [])
+  // useEffect(() => {
+  //   dispatch({
+  //     type: 'SAGA/GET_PLAYLISTS'
+  //   })
+  // }, [])
 
   const dispatch = useDispatch();
   
@@ -30,10 +30,16 @@ export default function VideoPlaylist({video}, {user}) {
 
     // calls dispatch to SAGA and sends playlistInput
     dispatch({
-      type: 'SAGA/ADD_PLAYLIST',
+      type: 'SAGA/ADD_PLAYLISTS',
       payload: playlistInput
     });
-    // console.log("playlistInput:", playlistInput); POST WORKS
+    // console.log("playlistInput:", playlistInput); WORKS
+
+    //after adding playlist name to playlist, display results on DOM
+    // dispatch({
+    //   type: 'SAGA/GET_PLAYLISTS'
+    // })
+    // GO TO PLAYLISTS.SAGA.JS
   }
 
   return (

@@ -1,17 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // IMPORT VIDEOITEM.JSX
 import VideoItem from './VideoItem';
 
-export default function VideosList({user}) {
+export default function VideosList() {
 
-  const videos = useSelector((store) => store.videos)
+  const videos = useSelector((store) => store.videos);
 
   return (
     <ul>
       {
         videos.map(video => {
           return (
-            <VideoItem key={video.id} video={video} user={user}/>
+            <VideoItem key={video.id} video={video}/>
           )
         })
       }

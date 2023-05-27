@@ -6,7 +6,6 @@ const router = express.Router();
  * GET route
  */
 router.get("/", (req, res) => {
-  // FINISH GET route code here: IN PROGRESS
   // COMES FROM URL.SAGA.JS
 
   // const userId = req.user.id; NOT YET
@@ -16,8 +15,6 @@ router.get("/", (req, res) => {
   SELECT id, video_url 
   FROM "video"
   `;
-
-  // const sqlValues = [userId]; NOT YET
 
   pool
     .query(sqlQuery)

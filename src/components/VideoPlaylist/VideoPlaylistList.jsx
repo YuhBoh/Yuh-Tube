@@ -1,12 +1,13 @@
 import { React } from 'react';
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import PlaylistItem from './PlaylistItem';
 
 export default function VideoPlaylistList() {
 
+  const playlists = useSelector((store) => store.playlists);
+
   return (
-    <>
-    </>
+    <p>hi</p>
   )
 
 };//WORK ON PLAYLIST TODAY GET/DELETE/UPDATE

@@ -6,10 +6,11 @@ const router = express.Router();
 router.post("/", (req, res) => {
   const playlist = req.body;
   // console.log("PLAYLIST:", playlist); WORKS
-  const userId = req.user;
+  const user = req.user;
+  // console.log("USER:", user.id);
 
   // If you're already logged in, you can use req.user.id to insert as data.
-  // console.log("userID:", req.user.id); WORKS
+  // console.log("userID:", req.user.id);
 
   const sqlText = `
   INSERT INTO "playlist"
@@ -19,9 +20,7 @@ router.post("/", (req, res) => {
   `;
 
   // Will insert values into sql
-  const sqlValues = [
-    playlist.name, 
-    userId.id];
+  const sqlValues = [playlist.name, user.id];
 
   pool
     .query(sqlText, sqlValues)
@@ -31,7 +30,27 @@ router.post("/", (req, res) => {
     .catch((dbErr) => {
       console.log("error posting playlist to DB", dbErr);
       res.sendStatus(500);
-    })
+    });
 });
+
+// // GET ROUTE
+// router.get("/", (req, res) => {
+//   // COMES FROM PLAYLISTS.SAGA.JS
+
+//   const sqlQuery = `
+//   SELECT id, playlist_name
+//   FROM "playlist"
+//   `;
+
+//   pool
+//     .query(sqlQuery)
+//     .then((dbRes) => {
+//       res.send(dbRes.rows);
+//       // console.log("dbRes.rows:", dbRes.rows); WORKS
+//     })
+//     .catch((dbErr) => {
+//       console.log("GET /api/playlists fail:", dbErr);
+//     });
+// });
 
 module.exports = router;

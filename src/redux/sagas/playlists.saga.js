@@ -1,11 +1,9 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 // adds playlist to db. Will roundtrip but not return anything except "oks".
 function* postPlaylist(action) {
-  // console.log("action.payload:", action.payload); POST WORKS (look in action)
-  // console.log("playlist:", playlist); VARIABLE WORKS
+  // console.log("action.payload:", action.payload); POST WORKS
   try {
     yield axios.post("/api/playlists/", { 
       name: action.payload});
@@ -16,8 +14,22 @@ function* postPlaylist(action) {
   
 }
 
+// Get list of playlists from database
+// function* getPlaylists() {
+//   try {
+//     const response = yield axios.get("/api/playlists");
+//     const thePlaylists = response.data
+//   } //PUT WILL COME LATER
+//   catch (error) {
+//     console.log("User get playlist request failed", error);
+//   }
+// }
+
 function* playlistsSaga() {
-  yield takeLatest("SAGA/ADD_PLAYLIST", postPlaylist);
+  yield takeLatest("SAGA/ADD_PLAYLISTS", postPlaylist)
+  // We heard SAGA/GET_PAYLISTS from VideoPlaylist.jsx.
+  // Run function getPlaylists 👇
+  // yield takeLatest("SAGA/GET_PLAYLISTS", getPlaylists)
 }
 
 export default playlistsSaga;

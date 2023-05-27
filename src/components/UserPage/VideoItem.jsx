@@ -1,9 +1,9 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import '../Nav/Nav.css'; //Will make own css later
 import VideoOptions from '../VideoOptions/VideoOptions';
 
 
-export default function VideoItem({video}, {user}) {
+export default function VideoItem({video}) {
 
   return (
     <li>
@@ -11,7 +11,7 @@ export default function VideoItem({video}, {user}) {
         {video.video_url}
       </a>
       <div>   
-        <VideoOptions video={video} user={user}/>
+        <VideoOptions video={video}/>
       </div>
     </li>
   )

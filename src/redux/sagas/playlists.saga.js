@@ -8,7 +8,7 @@ function* postPlaylist(action) {
   // console.log("playlist:", playlist); VARIABLE WORKS
   try {
     yield axios.post("/api/playlists/", { 
-      playlist: action.payload});
+      name: action.payload});
   } catch (error) {
     console.log("Playlist post request failed", error);
   }

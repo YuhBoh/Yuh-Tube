@@ -15,11 +15,11 @@ export default function PlaylistItem ({playlist}) {
         </div>
 
         <div className='options-container'>
-          <button>
+          <button className="saveto-edit-btn">
             EDIT
           </button>
-          <button>
-            DELETE
+          <button className='saveto-delete-btn'>
+            X
           </button>
         </div>
         

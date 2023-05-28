@@ -6,3 +6,23 @@
 .options-container {
   margin-left: 10px;
 }
+
+.saveto-edit-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.saveto-edit-btn:hover {
+  text-decoration: underline;
+}
+
+.saveto-delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.saveto-delete-btn:hover {
+  text-decoration: underline;
+}

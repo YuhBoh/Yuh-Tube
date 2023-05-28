@@ -31,7 +31,8 @@ export default function VideoOptions({video}, {user}) {
   return (
     <>
       <button 
-      onClick={toggleModal}>
+      onClick={toggleModal}
+      className='options-btn'>
         ...
       </button>
 
@@ -43,8 +44,8 @@ export default function VideoOptions({video}, {user}) {
             <div className="close-container">
               {/* When clicked, will close modal */}
               <button className="close-btn"
-              onClick={toggleModal}
-              >X 
+                      onClick={toggleModal}
+                >X 
               </button>
             </div>
 

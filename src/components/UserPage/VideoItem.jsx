@@ -7,12 +7,14 @@ export default function VideoItem({video}) {
 
   return (
     <li>
-      <a href={video.video_url}>
-        {video.video_url}
-      </a>
-      <div>   
+      <div className='video-item-container'>
+        <a href={video.video_url}>
+          {video.video_url}
+        </a>   
+        
         <VideoOptions video={video}/>
       </div>
+      
     </li>
   )
 }

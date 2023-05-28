@@ -1,11 +1,12 @@
 .options-btn {
-  font-size: 25px;
+  font-size: 16px;
   background: transparent;
   border: none;
   margin-left: 10px;
-  border-radius: 20px;
-  width: 40px;
-  height: 40px;
+  border-radius: 15px;
+  width: 28px;
+  height: 28px;
+  padding-bottom: 8px;
   cursor: pointer;
 }
 

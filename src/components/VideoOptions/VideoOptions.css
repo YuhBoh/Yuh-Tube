@@ -1,14 +1,13 @@
-.modalBackground2 {
+.modal-background {
   width: 100%;
   height: 100%;
   margin-top: -180px;
   margin-left: -40px;
-  /* background-color: rgba(86, 77, 77, 0.5); */
   position: fixed;
   display: flex;
 }
 
-.modalContainer2 {
+.modal-container {
   width: 80px;
   height: 130px;
   margin-left: 80px;
@@ -21,19 +20,19 @@
   text-align: center;
 }
 
-.titleCloseBtn2 {
+.close-container {
   display: flex;
   justify-content: flex-end;
+
 }
 
-.titleCloseBtn2 button {
+.close-btn {
   background-color: transparent;
   border: none;
-  font-size: 15px;
   cursor: pointer;
 }
 
-.modalContainer2 button {
+.delete-btn {
   border: none;
   background-color: white;
   border-radius: 8px;

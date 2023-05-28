@@ -37,12 +37,12 @@ export default function VideoOptions({video}, {user}) {
 
       {/* Will only show if modal = true */}
       {modal && (
-        <div className="modalBackground2">
-          <div className="modalContainer2">
+        <div className="modal-background">
+          <div className="modal-container">
 
-            <div className="titleCloseBtn2">
+            <div className="close-container">
               {/* When clicked, will close modal */}
-              <button 
+              <button className="close-btn"
               onClick={toggleModal}
               >X 
               </button>
@@ -61,7 +61,9 @@ export default function VideoOptions({video}, {user}) {
         
             {/* Button to run deleteVideos function */}
             <div>
-              <button onClick={() => deleteVideos(video.id)}>
+              <button 
+              className='delete-btn'
+              onClick={() => deleteVideos(video.id)}>
                 Delete
               </button>
             </div>

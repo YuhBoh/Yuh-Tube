@@ -7,6 +7,7 @@ function* postPlaylist(action) {
   try {
     yield axios.post("/api/playlists/", { 
       name: action.payload});
+    yield put({ type: "SAGA/GET_PLAYLISTS" });
   } catch (error) {
     console.log("Playlist post request failed", error);
   }
@@ -18,12 +19,12 @@ function* getPlaylists() {
   try {
     const response = yield axios.get("/api/playlists");
     const thePlaylists = response.data
-    console.log("response.data:", response.data);
-    
+    // console.log("response.data:", response.data); WORKS
+
     yield put({
       type: "REDUX/GET_PLAYLISTS",
-      playload: thePlaylists,
-    })
+      payload: thePlaylists,
+    });
   } 
   catch (error) {
     console.log("User get playlist request failed", error);

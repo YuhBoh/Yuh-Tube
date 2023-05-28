@@ -1,0 +1,8 @@
+.item-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options-container {
+  margin-left: 10px;
+}

@@ -1,40 +1,80 @@
-.modalBackground3 {
-  width: 100%;
-  height: 100%;
-  margin-top: -271px;
-  margin-left: 15px;
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   position: fixed;
-  display: flex;
+  background: rgba(49, 49, 49, 0.8);
 }
 
-.modalContainer3 {
-  width: 160px;
-  height: 130px;
-  margin-left: 80px;
-  margin-top: 170px;
-  border-radius: 12px;
-  background-color: white;
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.3;
+  background: #f1f1f1;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 10px;
-  display: inline-block;
-  text-align: center;
+  padding: 10px 10px;
+  border-radius: 12px;
+  max-width: 600px;
+  min-width: 100px;
 }
 
-.titleCloseBtn3 {
+.bottom-container {
+  position: relative;
+  padding-top: 30px;
+}
+
+.create-title {
   display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  bottom: 53px;
+  left: 43px;
+  font-size: 13px;
 }
 
-.titleCloseBtn3 button {
-  background-color: transparent;
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-input {
   border: none;
-  font-size: 15px;
-  cursor: pointer;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid black;
 }
 
-.modalContainer3 button {
+.save-btn {
   border: none;
   background-color: white;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  text-decoration: underline;
+}
+
+.submit-btn {
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  text-decoration: underline;
 }

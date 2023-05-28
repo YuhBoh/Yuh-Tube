@@ -8,7 +8,7 @@ export default function VideoPlaylistList() {
   // Their is no playlists in reducer store. go to root.reducer
 
   return (
-    <ul>
+    <div>
       {
         playlists.map(playlist => {
           return (
@@ -16,6 +16,6 @@ export default function VideoPlaylistList() {
           )
         })
       }
-    </ul>
+    </div>
   )
 };//WORK ON PLAYLIST TODAY GET/DELETE/UPDATE

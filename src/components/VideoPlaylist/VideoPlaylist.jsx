@@ -1,15 +1,14 @@
 import { React, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import "./VideoPlaylist.css";
 import VideoPlaylistList from './VideoPlaylistList';
 
-export default function VideoPlaylist({video}, {user}) {
-  // to reload component to show cuurent playlist???
-  // useEffect(() => {
-  //   dispatch({
-  //     type: 'SAGA/GET_PLAYLISTS'
-  //   })
-  // }, [])
+export default function VideoPlaylist() {
+  useEffect(() => {
+    dispatch({
+      type: 'SAGA/GET_PLAYLISTS'
+    })
+  }, [])
 
   const dispatch = useDispatch();
   
@@ -44,48 +43,65 @@ export default function VideoPlaylist({video}, {user}) {
 
   return (
     <>
-      <button
+      <button className='save-btn'
       onClick={toggleModal}>
         Save
       </button>
 
       {modal && (
-        <div className="modalBackground3">
-          <div className="modalContainer3">
-            <div className="titleCloseBtn3">
+        <div className="overlay">
+          <div className='modal-content'>
+            <div className='top-container'>
+              {/* title */}
+              <div>
+                Save to...
+              </div>
+
               {/* Will close 2nd modal */}
-              <button onClick={toggleModal}> X </button>
-            </div>
-
-            {/* title */}
-            <div>
-              <p>Save to...</p>
-            </div>
-
-            {/* List of playlists go here! */}
-            <div className="playlist">
-              <VideoPlaylistList />
-            </div>
-  
-            {/* Click here to create(POST/GET) new playlist */}
-            <div>
-              Create Playlist
-              <input className="playlist-input"
-                     type="text" 
-                     placeholder="Enter playlist name..."
-                     value={playlistInput}
-                     onChange={event => setPlaylistInput(event.target.value)}>
-              </input>
-            </div>
-
-            <div>
-              <button onClick={addPlaylist}
-              >SUBMIT
+              <button 
+                className="close-btn"
+                onClick={toggleModal}
+                > X 
               </button>
             </div>
-   
+
+              
+
+              {/* List of playlists go here! */}
+              <div className="playlist">
+                <VideoPlaylistList />
+              </div>
+
+              {/* Click here to create(POST/GET) new playlist */}
+              <div className='bottom-container'>
+
+                <div className='create-title'>
+                  Create Playlist
+                </div>
+                
+                <div className='create-playlist'>
+                  <input className="playlist-input"
+                        type="text" 
+                        placeholder="Enter playlist name..."
+                        value={playlistInput}
+                        onChange={event => setPlaylistInput(event.target.value)}>
+                  </input>
+                </div>
+
+                <div>
+                  <button
+                  className='submit-btn' 
+                  onClick={addPlaylist}
+                  >SUBMIT
+                  </button>
+                </div>
+              </div>
+
+              
+
+            </div>
+
           </div>
-        </div>
         )
       }
     </>

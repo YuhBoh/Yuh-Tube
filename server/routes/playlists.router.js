@@ -46,7 +46,7 @@ router.get("/", (req, res) => {
     .query(sqlQuery)
     .then((dbRes) => {
       res.send(dbRes.rows);
-      console.log("dbRes.rows:", dbRes.rows);
+      // console.log("dbRes.rows:", dbRes.rows); WORKS
     })
     .catch((dbErr) => {
       console.log("GET /api/playlists fail:", dbErr);

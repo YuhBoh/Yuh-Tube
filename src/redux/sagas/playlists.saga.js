@@ -11,25 +11,30 @@ function* postPlaylist(action) {
     console.log("Playlist post request failed", error);
   }
   // NEXT GO TO SERVER (Create playlists.router.js)
-  
 }
 
-// Get list of playlists from database
-// function* getPlaylists() {
-//   try {
-//     const response = yield axios.get("/api/playlists");
-//     const thePlaylists = response.data
-//   } //PUT WILL COME LATER
-//   catch (error) {
-//     console.log("User get playlist request failed", error);
-//   }
-// }
+// Get list of playlists from database and send to Redux for render
+function* getPlaylists() {
+  try {
+    const response = yield axios.get("/api/playlists");
+    const thePlaylists = response.data
+    console.log("response.data:", response.data);
+    
+    yield put({
+      type: "REDUX/GET_PLAYLISTS",
+      playload: thePlaylists,
+    })
+  } 
+  catch (error) {
+    console.log("User get playlist request failed", error);
+  }
+}
 
 function* playlistsSaga() {
   yield takeLatest("SAGA/ADD_PLAYLISTS", postPlaylist)
   // We heard SAGA/GET_PAYLISTS from VideoPlaylist.jsx.
   // Run function getPlaylists 👇
-  // yield takeLatest("SAGA/GET_PLAYLISTS", getPlaylists)
+  yield takeLatest("SAGA/GET_PLAYLISTS", getPlaylists)
 }
 
 export default playlistsSaga;

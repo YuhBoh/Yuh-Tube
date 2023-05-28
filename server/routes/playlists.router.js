@@ -33,24 +33,24 @@ router.post("/", (req, res) => {
     });
 });
 
-// // GET ROUTE
-// router.get("/", (req, res) => {
-//   // COMES FROM PLAYLISTS.SAGA.JS
+// GET ROUTE
+router.get("/", (req, res) => {
+  // COMES FROM PLAYLISTS.SAGA.JS
 
-//   const sqlQuery = `
-//   SELECT id, playlist_name
-//   FROM "playlist"
-//   `;
+  const sqlQuery = `
+  SELECT id, playlist_name
+  FROM "playlist"
+  `;
 
-//   pool
-//     .query(sqlQuery)
-//     .then((dbRes) => {
-//       res.send(dbRes.rows);
-//       // console.log("dbRes.rows:", dbRes.rows); WORKS
-//     })
-//     .catch((dbErr) => {
-//       console.log("GET /api/playlists fail:", dbErr);
-//     });
-// });
+  pool
+    .query(sqlQuery)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+      console.log("dbRes.rows:", dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log("GET /api/playlists fail:", dbErr);
+    });
+});
 
 module.exports = router;

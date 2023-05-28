@@ -54,7 +54,7 @@ export default function VideoPlaylist({video}, {user}) {
           <div className="modalContainer3">
             <div className="titleCloseBtn3">
               {/* Will close 2nd modal */}
-              <button onClick={() => closeModal(false)}> X </button>
+              <button onClick={toggleModal}> X </button>
             </div>
 
             {/* title */}

@@ -18,7 +18,7 @@ function* getVideos() {
   try {
     const response = yield axios.get("/api/videos");
     const theVideos = response.data;
-    console.log("response.data:", theVideos);
+    // console.log("response.data:", theVideos); WORKS
 
     yield put({
       type: "REDUX/GET_URLS",

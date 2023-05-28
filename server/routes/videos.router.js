@@ -8,9 +8,6 @@ const router = express.Router();
 router.get("/", (req, res) => {
   // COMES FROM URL.SAGA.JS
 
-  // const userId = req.user.id; NOT YET
-  // console.log('req.user.id:', req.user.id); NOT YET
-
   const sqlQuery = `
   SELECT id, video_url 
   FROM "video"
@@ -20,7 +17,7 @@ router.get("/", (req, res) => {
     .query(sqlQuery)
     .then((dbRes) => {
       res.send(dbRes.rows);
-      // console.log("dbRes.rows:", dbRes.rows); LOOK IN SERVER TERMINAL WORKS
+      // console.log("dbRes.rows:", dbRes.rows);
     })
     .catch((dbErr) => {
       console.log("GET /api/videos fail:", dbErr);

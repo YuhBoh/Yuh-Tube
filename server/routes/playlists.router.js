@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
   INSERT INTO "playlist"
   ("playlist_name", "user_id")
   VALUES
-  ($1, $2)
+  ($1, $2);
   `;
 
   // Will insert values into sql

@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import "./VideoOptions.css";
+import "./styles/VideoOptions.css";
 import VideoPlaylist from '../VideoPlaylist/VideoPlaylist';
 
 

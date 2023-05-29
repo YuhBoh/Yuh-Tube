@@ -1,6 +1,6 @@
 import {React, useState } from 'react';
 import { useDispatch }from 'react-redux';
-import "./PlaylistItem.css";
+import "./styles/PlaylistItem.css";
 
 export default function PlaylistItem({ playlist }) {
   const dispatch = useDispatch();

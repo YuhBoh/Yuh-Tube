@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import "./VideoPlaylist.css";
+import "./styles/VideoPlaylist.css";
 import VideoPlaylistList from './VideoPlaylistList';
 
 export default function VideoPlaylist() {

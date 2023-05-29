@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
   const sqlQuery = `
   SELECT id, video_url 
-  FROM "video"
+  FROM "video";
   `;
 
   pool
@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
   INSERT INTO "video"
   ("video_url")
   VALUES
-  ($1)
+  ($1);
   `;
 
   const sqlValues = [video];
@@ -59,7 +59,7 @@ router.delete("/:id", (req, res) => {
 
   const sqlText = `
   DELETE FROM "video"
-  WHERE id=$1
+  WHERE id=$1;
   `;
   const sqlValues = [videoId];
 

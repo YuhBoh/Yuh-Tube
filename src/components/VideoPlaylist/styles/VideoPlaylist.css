@@ -26,6 +26,10 @@ body.active-modal {
   min-width: 100px;
 }
 
+.playlist {
+  margin-top: 20px;
+}
+
 .bottom-container {
   padding-top: 30px;
 }

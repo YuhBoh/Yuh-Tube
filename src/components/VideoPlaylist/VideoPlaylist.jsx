@@ -16,7 +16,7 @@ export default function VideoPlaylist() {
   const [modal, setModal] = useState(false);
 
   // create state for playlist
-  const [playlistInput, setPlaylistInput] = useState([]);
+  const [playlistInput, setPlaylistInput] = useState('');
 
   // function to toggle state of modal
   const toggleModal = () => {
@@ -27,17 +27,16 @@ export default function VideoPlaylist() {
   const addPlaylist = (event) => {
     event.preventDefault();
 
+    if (playlistInput !== '') {
     // calls dispatch to SAGA and sends playlistInput
-    dispatch({
-      type: 'SAGA/ADD_PLAYLISTS',
-      payload: playlistInput
-    });
+      dispatch({
+        type: 'SAGA/ADD_PLAYLISTS',
+        payload: playlistInput
+      });
+    }
     // console.log("playlistInput:", playlistInput); WORKS
 
-    //after adding playlist name to playlist, display results on DOM
-    // dispatch({
-    //   type: 'SAGA/GET_PLAYLISTS'
-    // })
+    setPlaylistInput('');
     // GO TO PLAYLISTS.SAGA.JS
   }
 

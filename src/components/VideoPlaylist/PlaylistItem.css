@@ -7,6 +7,17 @@
   margin-left: 10px;
 }
 
+.saveto-input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  margin: 0 0 0 0;
+  padding: 0;
+  outline: none;
+  border-bottom: 1px solid black;
+  max-width: 80px;
+}
+
 .saveto-edit-btn {
   background: transparent;
   border: none;

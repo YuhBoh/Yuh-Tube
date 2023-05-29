@@ -4,11 +4,11 @@ import PlaylistItem from './PlaylistItem';
 
 export default function VideoPlaylistList() {
 
+  // grabs information from _root.reducer.
   const playlists = useSelector((store) => store.playlists);
-  // Their is no playlists in reducer store. go to root.reducer
 
   return (
-    <div>
+    <>
       {
         playlists.map(playlist => {
           return (
@@ -16,6 +16,6 @@ export default function VideoPlaylistList() {
           )
         })
       }
-    </div>
+    </>
   )
-};//WORK ON PLAYLIST TODAY GET/DELETE/UPDATE
+};

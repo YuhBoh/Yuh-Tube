@@ -55,7 +55,7 @@ router.post("/", (req, res) => {
 // DELETE ROUTE
 router.delete("/:id", (req, res) => {
   const videoId = req.params.id;
-  // console.log("req.params.id:", video); WORKS
+  // console.log("req.params.id:", videoId); WORKS
 
   const sqlText = `
   DELETE FROM "video"

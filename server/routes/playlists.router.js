@@ -37,13 +37,14 @@ router.post("/", (req, res) => {
 router.get("/", (req, res) => {
   // COMES FROM PLAYLISTS.SAGA.JS
 
-  const sqlQuery = `
+  const sqlText = `
   SELECT id, playlist_name
   FROM "playlist"
+  ORDER BY id;
   `;
 
   pool
-    .query(sqlQuery)
+    .query(sqlText)
     .then((dbRes) => {
       res.send(dbRes.rows);
       // console.log("dbRes.rows:", dbRes.rows); WORKS
@@ -52,5 +53,32 @@ router.get("/", (req, res) => {
       console.log("GET /api/playlists fail:", dbErr);
     });
 });
+
+// PUT/UPDATE ROUTE
+router.put("/:id", (req,res) => {
+  // COMES FROM PLAYLISTS.SAGA.JS
+  const playlistId = req.params.id;
+  console.log("req.params.id:", playlistId);
+  const playlistName = req.body.name;
+  console.log('REQBODYNAME:', playlistName);
+
+  const sqlText = `
+  UPDATE "playlist"
+  SET playlist_name = $1
+  WHERE id = $2;
+  `;
+
+  const sqlValues = [playlistName, playlistId];
+
+  pool
+    .query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(201);
+    })
+    .catch((dbErr) => {
+      console.log("error deleting from DB:", dbErr);
+      res.sendStatus(500);
+    });
+})
 
 module.exports = router;

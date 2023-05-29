@@ -25,17 +25,34 @@ function* getPlaylists() {
       type: "REDUX/GET_PLAYLISTS",
       payload: thePlaylists,
     });
-  } 
-  catch (error) {
+  } catch (error) {
     console.log("User get playlist request failed", error);
   }
 }
 
+// Update playlist(s) in database and send to Redux for render
+function* updatePlaylists(action) {
+  try {
+    // console.log("ACTION.PAYLOAD:", action.payload); WORKS
+    // name: be used again in router.
+    const playlist = action.payload;
+    yield axios.put(`/api/playlists/${playlist.id}`, {name: playlist.name});
+
+  } catch (error) {
+    console.log("User update playlist request failed", error);
+  }
+}
+
 function* playlistsSaga() {
-  yield takeLatest("SAGA/ADD_PLAYLISTS", postPlaylist)
+  yield takeLatest("SAGA/ADD_PLAYLISTS", postPlaylist),
+
   // We heard SAGA/GET_PAYLISTS from VideoPlaylist.jsx.
   // Run function getPlaylists 👇
-  yield takeLatest("SAGA/GET_PLAYLISTS", getPlaylists)
+  yield takeLatest("SAGA/GET_PLAYLISTS", getPlaylists),
+
+  // We heard SAGA/UPDATE_PAYLISTS from PlaylistItem.jsx.
+  // Run function updatePlaylists 👇
+  yield takeLatest("SAGA/UPDATE_PLAYLIST", updatePlaylists)
 }
 
 export default playlistsSaga;

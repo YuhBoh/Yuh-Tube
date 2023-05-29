@@ -61,6 +61,7 @@ router.delete("/:id", (req, res) => {
   DELETE FROM "video"
   WHERE id=$1;
   `;
+  
   const sqlValues = [videoId];
 
   pool

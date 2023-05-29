@@ -15,7 +15,7 @@
   padding: 0;
   outline: none;
   border-bottom: 1px solid black;
-  max-width: 80px;
+  max-width: 200px;
 }
 
 .saveto-edit-btn {
@@ -36,4 +36,8 @@
 
 .saveto-delete-btn:hover {
   text-decoration: underline;
+}
+
+img {
+  width: 15px;
 }

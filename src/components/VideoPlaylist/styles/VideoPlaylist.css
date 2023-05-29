@@ -23,18 +23,17 @@ body.active-modal {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 10px 10px;
   border-radius: 12px;
-  max-width: 600px;
   min-width: 100px;
 }
 
 .bottom-container {
-  position: relative;
   padding-top: 30px;
 }
 
 .create-title {
   display: flex;
-  position: absolute;
+  justify-content: space-around;
+  margin-right: 60px;
   bottom: 53px;
   left: 43px;
   font-size: 13px;

@@ -2,7 +2,7 @@ import {React, useState } from 'react';
 import { useDispatch }from 'react-redux';
 import "./styles/PlaylistItem.css";
 
-export default function PlaylistItem({ playlist }) {
+export default function PlaylistItem({playlist}) {
   const dispatch = useDispatch();
 
   const [editing, setEditing] = useState(false);
@@ -28,6 +28,18 @@ export default function PlaylistItem({ playlist }) {
     // NOW GO TO PLAYLISTS.SAGA.JS
   };
 
+  function deletePlaylists(id) {
+    // console.log("playlist:", id); WORKS
+    dispatch({
+      type: "SAGA/DELETE_PLAYLISTS",
+      payload: id
+    });
+
+    dispatch({
+      type: "SAGA/GET_PLAYLISTS"
+    });
+  }
+
   return (
     <div className="item-container">
       <div>
@@ -52,10 +64,13 @@ export default function PlaylistItem({ playlist }) {
           </button>
         ) : (
           <button className="saveto-edit-btn" onClick={() => setEditing(true)}>
-            Edit
+            <img src={ require("./images/edit-pen.png")} alt="edit" />
           </button>
         )}
-        <button className="saveto-delete-btn">/</button>
+        <button className="saveto-delete-btn"
+                onClick={() => deletePlaylists(playlist.id)}>
+          <img src={ require("./images/trash.png")} alt="delete" />
+        </button>
       </div>
       
     </div>

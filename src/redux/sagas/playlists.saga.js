@@ -43,6 +43,14 @@ function* updatePlaylists(action) {
   }
 }
 
+function* deletePlaylists(action) {
+  try {
+    yield axios.delete(`/api/playlists/${action.payload}`);
+  } catch (error) {
+    console.log("User delete playlist request failed", error);
+  }
+}
+
 function* playlistsSaga() {
   yield takeLatest("SAGA/ADD_PLAYLISTS", postPlaylist),
 
@@ -53,6 +61,8 @@ function* playlistsSaga() {
   // We heard SAGA/UPDATE_PAYLISTS from PlaylistItem.jsx.
   // Run function updatePlaylists 👇
   yield takeLatest("SAGA/UPDATE_PLAYLIST", updatePlaylists)
+
+  yield takeLatest("SAGA/DELETE_PLAYLISTS", deletePlaylists)
 }
 
 export default playlistsSaga;

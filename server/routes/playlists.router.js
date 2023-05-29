@@ -81,4 +81,25 @@ router.put("/:id", (req,res) => {
     });
 })
 
+router.delete("/:id", (req, res) => {
+  const playlistId = req.params.id;
+  // console.log("req.params.id:", playlistId); WORKS
+
+  const sqlText=`
+  DELETE FROM "playlist"
+  WHERE id=$1;
+  `;
+
+  const sqlValues = [playlistId];
+
+  pool
+    .query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(201);
+    })
+    .catch((dbErr) => {
+      console.log("error deleteing from DB:", dbErr);
+    });
+});
+
 module.exports = router;

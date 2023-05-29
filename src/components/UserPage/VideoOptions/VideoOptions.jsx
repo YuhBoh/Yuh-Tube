@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import "./styles/VideoOptions.css";
-import VideoPlaylist from '../VideoPlaylist/VideoPlaylist';
+import VideoPlaylist from '../../VideoPlaylist/VideoPlaylist';
 
 
 export default function VideoOptions({video}, {user}) {

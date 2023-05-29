@@ -56,7 +56,8 @@ export default function VideoOptions({video}, {user}) {
             {/* When clicked will open 2nd modal and close first modal. */}
             <div>
               <VideoPlaylist video={video} 
-                             user={user}/>
+                             user={user}
+                             />
             </div>
 
         

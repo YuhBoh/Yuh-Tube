@@ -5,7 +5,6 @@ import VideoOptions from './VideoOptions/VideoOptions';
 export default function VideoItem({video}) {
 
   return (
-    <li>
       <div>
         <a href={video.video_url}>
           {video.video_url}
@@ -13,7 +12,5 @@ export default function VideoItem({video}) {
         
         <VideoOptions video={video}/>
       </div>
-      
-    </li>
   )
 }

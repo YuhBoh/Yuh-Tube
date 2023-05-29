@@ -7,7 +7,7 @@ export default function VideosList() {
   const videos = useSelector((store) => store.videos);
 
   return (
-    <ul>
+    <>
       {
         videos.map(video => {
           return (
@@ -15,7 +15,7 @@ export default function VideosList() {
           )
         })
       }
-    </ul>
+    </>
   )
 }
 

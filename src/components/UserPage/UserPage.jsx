@@ -18,16 +18,14 @@ function UserPage() {
 
   return (
     <>
+      <div>
+        <h3>
+          Videos
+        </h3>
+      </div>
+          
       <div className="video-grid">
-        <ul>
-          <h3>
-            Videos
-          </h3>
-        </ul>
-
-        <div>
           <VideosList user={user}/>
-        </div>
       </div>
     </>
   );

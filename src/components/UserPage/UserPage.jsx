@@ -1,11 +1,8 @@
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { React, useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-// import './styles/general.css';
-import './styles/header.css';
-// import './styles/sidebar.css';
-// import './styles/video.css';
 import VideosList from './VideosList';
+import './UserPage.css';
 
 function UserPage() {
   useEffect(() => {
@@ -33,7 +30,6 @@ function UserPage() {
         </div>
       </div>
     </>
-
   );
 }
 

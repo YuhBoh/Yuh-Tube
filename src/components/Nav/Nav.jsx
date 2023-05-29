@@ -10,11 +10,26 @@ function Nav() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="nav">
+    <div className="header">
       <Link to="/home">
-        <h2 className="nav-title">Yuh-Tube</h2>
+        <div className="left-section">
+          <h2 className="nav-title">Yuh-Tube</h2>
+        </div>
       </Link>
-      <div className="nav-right">
+
+      <div className="middle-section">
+        <input className="search-bar" type="text" placeholder="Search"/>
+        <button className="search-button">
+          <img className="search-icon" src={ require("./images/search.png")} alt="" />
+          <div className="tooltip">Search</div>
+        </button>
+        <button className="voice-search-button">
+          <img className="voice-search-icon" src={ require("./images/voice-search-icon.png")} alt="" />
+          <div className="tooltip">Search with your voice</div>
+        </button>
+      </div>
+
+      <div className="right-section">
         {/* If no user is logged in, show these links */}
         {!user.id && (
           // If there's no user, show login/registration links
@@ -26,16 +41,14 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-
             <div className="upload-container">
               <Link 
-                onClick ={() => {setOpenModal(true);}}    
-                className="navLink" 
+                onClick ={() => {setOpenModal(true);}}     
                 to="/user">
-                Upload
+                <div class="upload-icon-container">
+                  <img class="upload-icon" src={ require("./images/upload.png")} alt="" />
+                  <div class="tooltip">Create</div>
+                </div>
               </Link>
               {openModal && <Upload 
               className="upload-pop"
@@ -43,15 +56,15 @@ function Nav() {
             </div>
             
 
-            <Link className="navLink" to="/info">
+            <Link className="nav-link" to="/info">
               Info Page
             </Link>
 
-            <LogOutButton className="navLink" />
+            <LogOutButton className="nav-link"/>
           </>
         )}
 
-        <Link className="navLink" to="/about">
+        <Link className="nav-link" to="/about">
           About
         </Link>
       </div>

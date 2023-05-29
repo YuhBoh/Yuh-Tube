@@ -21,12 +21,15 @@ const Upload = ({ closeModal }) => {
       <>
         <div className='modalBackground'>
           <div className='modalContainer'>
+            <div className="title-container">
+              <div className='title'>
+              Upload Video
+            </div>
             <div className='closeBtn'>
               <button onClick={() => closeModal(false)}> X </button>
             </div>
-            <div className='title'>
-              <h1>Upload Video</h1>
             </div>
+            
             <div className='body'>
               <form>
                 <input type='text' 
@@ -35,8 +38,8 @@ const Upload = ({ closeModal }) => {
                      onChange={event => setVideosInput(event.target.value)}>
                 </input>
               </form>
-              
             </div>
+            
             <div className='footer'>
              <button onClick={addVideos}
              >SUBMIT

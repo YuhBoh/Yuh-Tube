@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import Sidebar from '../Sidebar/Sidebar';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,6 @@ function App() {
   return (
     <Router>
       <div className='everything'>
-        <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -45,6 +45,8 @@ function App() {
             exact path="/about"
           >
             <AboutPage />
+            <Nav />
+            <Sidebar />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -56,6 +58,8 @@ function App() {
             exact path="/user"
           >
             <UserPage />
+            <Nav />
+            <Sidebar />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -63,6 +67,8 @@ function App() {
             exact path="/info"
           >
             <InfoPage />
+            <Nav />
+            <Sidebar />
           </ProtectedRoute>
 
           <Route

@@ -1,0 +1,15 @@
+.thumbnail-row {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.thumbnail {
+  width: 100px;
+}
+
+.video-options {
+  position: absolute;
+  bottom: 0px;
+  left: 80px;
+}
+    

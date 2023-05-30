@@ -2,10 +2,14 @@
   position: fixed;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .modalContainer {
-  margin-top: 16px;
+  position: absolute;
+  top: 500;
+  left: 50;
+  right: 200;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, .35) 0px 5px 15px;

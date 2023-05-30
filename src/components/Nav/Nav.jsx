@@ -45,19 +45,17 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <div className="upload-container">
-              <Link 
-                onClick ={() => {setOpenModal(true);}}     
-                to="/user">
-                <div className="upload-icon-container">
-                  <img className="upload-icon" src={ require("./images/upload.png")} alt="" />
-                  <div className="tooltip">Create</div>
-                </div>
-              </Link>
-              {openModal && <Upload 
-              className="upload-pop"
-              closeModal={setOpenModal} />} 
-            </div>
+            <Link 
+              onClick ={() => {setOpenModal(true);}}     
+              to="/user">
+              <div className="upload-icon-container">
+                <img className="upload-icon" src={require("./images/upload.png")} alt="" />
+                <div className="tooltip">Create</div>
+              </div>
+            </Link>
+            {openModal && <Upload 
+            className="upload-pop"
+            closeModal={setOpenModal} />}
             
 
             <Link className="nav-link" to="/info">

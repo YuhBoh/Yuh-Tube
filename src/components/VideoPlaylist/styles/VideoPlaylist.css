@@ -11,6 +11,7 @@ body.active-modal {
   bottom: 0;
   position: fixed;
   background: rgba(49, 49, 49, 0.8);
+  z-index: 200;
 }
 
 .modal-content {

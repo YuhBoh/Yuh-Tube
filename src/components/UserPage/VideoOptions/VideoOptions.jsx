@@ -4,15 +4,19 @@ import { useDispatch } from 'react-redux';
 import "./styles/VideoOptions.css";
 import VideoPlaylist from '../../VideoPlaylist/VideoPlaylist';
 
-
 export default function VideoOptions({video}, {user}) {
-  const dispatch = useDispatch();
   // for pop-up; currently false
   const [modal, setModal] = useState(false);
 
   // function to toggle state of modal
   const toggleModal = () => {
     setModal(!modal)
+  }
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
   }
 
   //function to delete videos from db and render results
@@ -33,14 +37,15 @@ export default function VideoOptions({video}, {user}) {
       <button 
       onClick={toggleModal}
       className='options-btn'>
-        ...
+        <img 
+          className="dots"
+          src={require("../images/horizontal-dots.png")} alt="" />
       </button>
 
       {/* Will only show if modal = true */}
       {modal && (
-        <div className="modal-background">
-          <div className="modal-container">
-
+        <div className="modal">  
+          <div className="options-container">
             <div className="close-container">
               {/* When clicked, will close modal */}
               <button className="close-btn"
@@ -56,8 +61,8 @@ export default function VideoOptions({video}, {user}) {
             {/* When clicked will open 2nd modal and close first modal. */}
             <div>
               <VideoPlaylist video={video} 
-                             user={user}
-                             />
+                            user={user}
+                            />
             </div>
 
         
@@ -72,8 +77,8 @@ export default function VideoOptions({video}, {user}) {
 
           </div>
         </div>
-        )
-      }
+      )
+    }
     </>
   )
 }

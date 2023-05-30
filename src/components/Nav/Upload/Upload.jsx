@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-import "./Upload.css";
 import { useDispatch } from 'react-redux';
 
 const Upload = ({ closeModal }) => {

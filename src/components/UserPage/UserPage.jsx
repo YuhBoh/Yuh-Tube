@@ -37,7 +37,7 @@ function UserPage() {
       </div>
           
       <div className="video-grid">
-          <VideosList user={user}/>
+        <VideosList user={user}/>
       </div>
 
       <div className="playlist-section">
@@ -46,7 +46,7 @@ function UserPage() {
         </h3>
 
         <div>
-          <VideoPlaylistList />
+          
         </div>
       </div>
     </>

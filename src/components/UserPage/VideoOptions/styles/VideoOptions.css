@@ -3,6 +3,8 @@ body.active-modal {
 }
 
 .options-btn {
+  position: absolute;
+  left: 100px;
   font-size: 25px;
   background: transparent;
   border: none;
@@ -26,13 +28,20 @@ body.active-modal {
 }
 
 .modal {
-
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
 }
 
 .options-container {
   width: 80px;
   height: 130px;
-
+  margin-top: -20px;
+  margin-left: 12%;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

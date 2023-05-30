@@ -2,14 +2,10 @@
   position: fixed;
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .modalContainer {
-  position: absolute;
-  top: 500;
-  left: 50;
-  right: 200;
+  margin-top: 176px;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, .35) 0px 5px 15px;
@@ -35,7 +31,11 @@
 }
 
 .body {
-  margin-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.7rem;
+  text-align: center;
 }
 
 .modalContainer .footer {

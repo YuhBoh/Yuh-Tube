@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import './Upload.css';
 import { useDispatch } from 'react-redux';
 
 const Upload = ({ closeModal }) => {
@@ -22,11 +23,11 @@ const Upload = ({ closeModal }) => {
           <div className='modalContainer'>
             <div className="title-container">
               <div className='title'>
-              Upload Video
-            </div>
-            <div className='closeBtn'>
-              <button onClick={() => closeModal(false)}> X </button>
-            </div>
+                Upload Video
+              </div>
+              <div className='closeBtn'>
+                <button onClick={() => closeModal(false)}> X </button>
+              </div>
             </div>
             
             <div className='body'>

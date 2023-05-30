@@ -46,7 +46,7 @@ function UserPage() {
         </h3>
 
         <div>
-          
+          <VideoPlaylistList />
         </div>
       </div>
     </>

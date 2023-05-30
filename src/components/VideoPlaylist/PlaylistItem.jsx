@@ -42,7 +42,7 @@ export default function PlaylistItem({playlist}) {
 
   return (
     <div className="item-container">
-      <div>
+  
         {editing ? (
           <input
             className="saveto-input"
@@ -55,24 +55,24 @@ export default function PlaylistItem({playlist}) {
             {playlistName}
           </div>
         )}
-      </div>
 
-      <div className="options-container">
+      <div className="saveto-options-container">
         {editing ? (
           <button className="saveto-edit-btn" onClick={updatePlaylistName}>
             Save
           </button>
         ) : (
-          <button className="saveto-edit-btn" onClick={() => setEditing(true)}>
-            <img src={ require("./images/edit-pen.png")} alt="edit" />
-          </button>
-        )}
-        <button className="saveto-delete-btn"
+          <div>
+            <button className="saveto-edit-btn" onClick={() => setEditing(true)}>
+            <img src={ require("./images/edit-pen.png")} alt="" />
+            </button>
+            <button className="saveto-delete-btn"
                 onClick={() => deletePlaylists(playlist.id)}>
-          <img src={ require("./images/trash.png")} alt="delete" />
-        </button>
+            <img src={ require("./images/trash.png")} alt="" />
+            </button>
+          </div>
+        )}
       </div>
-      
     </div>
   );
 }

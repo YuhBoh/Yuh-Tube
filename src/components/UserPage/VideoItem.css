@@ -1,15 +1,31 @@
 .thumbnail-row {
   margin-bottom: 8px;
   position: relative;
+  display: flex;
 }
 
 .thumbnail {
   width: 100px;
 }
 
-/* .video-options {
-  position: absolute;
-  bottom: 0px;
-  left: 80px;
-} */
-    
+.video-options {
+  margin-top: 27%;
+}
+
+.video-info-grid {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.video-info {
+  margin-left: -2px;
+  margin-top: 15px;
+}
+
+.video-title {
+  margin-top: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 10px;
+}

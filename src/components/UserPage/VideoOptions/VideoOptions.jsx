@@ -8,6 +8,8 @@ export default function VideoOptions({video}, {user}) {
   // for pop-up; currently false
   const [modal, setModal] = useState(false);
 
+  const dispatch = useDispatch();
+
   // function to toggle state of modal
   const toggleModal = () => {
     setModal(!modal)

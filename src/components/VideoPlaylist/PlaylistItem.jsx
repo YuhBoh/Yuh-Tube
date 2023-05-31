@@ -43,18 +43,18 @@ export default function PlaylistItem({playlist}) {
   return (
     <div className="item-container">
   
-        {editing ? (
-          <input
-            className="saveto-input"
-            type="text"
-            value={playlistName}
-            onChange={handleInputChange}
-          />
-        ) : (
-          <div>
-            {playlistName}
-          </div>
-        )}
+      {editing ? (
+        <input
+          className="saveto-input"
+          type="text"
+          value={playlistName}
+          onChange={handleInputChange}
+        />
+      ) : (
+        <div>
+          {playlistName}
+        </div>
+      )}
 
       <div className="saveto-options-container">
         {editing ? (
@@ -63,12 +63,15 @@ export default function PlaylistItem({playlist}) {
           </button>
         ) : (
           <div>
-            <button className="saveto-edit-btn" onClick={() => setEditing(true)}>
-            <img src={ require("./images/edit-pen.png")} alt="" />
+            <button 
+            className="saveto-edit-btn" 
+            onClick={() => setEditing(true)}>
+              <img src={ require("./images/edit-pen.png")} alt="" />
             </button>
-            <button className="saveto-delete-btn"
-                onClick={() => deletePlaylists(playlist.id)}>
-            <img src={ require("./images/trash.png")} alt="" />
+            <button 
+            className="saveto-delete-btn"
+            onClick={() => deletePlaylists(playlist.id)}>
+              <img src={ require("./images/trash.png")} alt="" />
             </button>
           </div>
         )}

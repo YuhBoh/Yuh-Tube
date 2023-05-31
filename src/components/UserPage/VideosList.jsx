@@ -5,6 +5,7 @@ import VideoItem from './VideoItem';
 export default function VideosList() {
 
   const videos = useSelector((store) => store.videos);
+  console.log("VIDEO:", videos);
 
   return (
     <>

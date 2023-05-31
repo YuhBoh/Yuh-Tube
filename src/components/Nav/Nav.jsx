@@ -2,12 +2,25 @@ import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Upload from './Upload/Upload';
 
 function Nav() {
   const user = useSelector((store) => store.user);
   const [openModal, setOpenModal] = useState(false);
+
+  const [searchInput, setSearchInput] = useState('');
+  console.log('SEARCHINPUT:'. searchInput);
+
+  const addAPI = (event) => {
+    event.preventDefault();
+    const dispatch = useDispatch();
+
+    dispatch({
+      type: 'SAGA/ADD_API',
+      payload: searchInput
+    });
+  }
 
   return (
     // HEADER
@@ -21,16 +34,28 @@ function Nav() {
         </div>
       </Link>
 
+      {/* MIDDLE SECTION */}
       <div className="middle-section">
-        <input className="search-bar" type="text" placeholder="Search"/>
-        <button className="search-button">
-          <img className="search-icon" src={ require("./images/search.png")} alt="search" />
-          <div className="tooltip">Search</div>
-        </button>
+
+        <form onSubmit={addAPI}>
+          <input 
+            value={searchInput}
+            onChange={event => setSearchInput(event.target.value)}
+            className="search-bar" 
+            type="text" 
+            placeholder="Search"/>
+
+          <button className="search-button">
+            <img className="search-icon" src={ require("./images/search.png")} alt="search" />
+            <div className="tooltip">Search</div>
+          </button>
+        </form>
+
         <button className="voice-search-button">
           <img className="voice-search-icon" src={ require("./images/voice-search-icon.png")} alt="" />
           <div className="tooltip">Search with your voice</div>
         </button>
+
       </div>
 
       <div className="right-section">
@@ -45,10 +70,10 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-              <div className="upload-icon-container">
-                <img onClick ={() => {setOpenModal(true);}}className="upload-icon" src={require("./images/upload.png")} alt="" />
-                <div className="tooltip">Create</div>
-              </div>
+            <div className="upload-icon-container">
+              <img onClick ={() => {setOpenModal(true);}}className="upload-icon" src={require("./images/upload.png")} alt="" />
+              <div className="tooltip">Create</div>
+            </div>
             {openModal && <Upload 
             className="upload-pop"
             closeModal={setOpenModal} />}

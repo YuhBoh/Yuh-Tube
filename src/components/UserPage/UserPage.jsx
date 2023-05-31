@@ -21,12 +21,9 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const playlists = useSelector((store) => store.playlists);
-  console.log("store.playlist:", playlists)
+  // console.log("store.playlist:", playlists)
 
   const dispatch = useDispatch();
-
-
-
 
   return (
     <>

@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import VideosList from './VideosList';
 import './UserPage.css';
 import VideoPlaylistList from '../VideoPlaylist/VideoPlaylistList';
-import SearchVideos from '../Nav/Middle/SearchVideos/SearchVideos';
+import SearchVideo from '../Nav/Middle/SearchVideos/SearchVideo';
 
 function UserPage() {
   useEffect(() => {
@@ -21,8 +21,8 @@ function UserPage() {
   }, [])
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
-  const searches = useSelector(store => store.search);
-  console.log('SEARCHES:', searches.data)
+  const search = useSelector(store => store.search);
+  const searches = search?.data?.data?.dataArray || [];
   // const searchThumbnail = searches.data.data.dataArray.snippet.thumbnails.high.url
 
   const dispatch = useDispatch();
@@ -36,23 +36,13 @@ function UserPage() {
       </div>
 
       <div className="videos-section">
-    <div className="video-container">
-      <div className="video">
-            {/* <img src={searchThumbnail} className="api-thumbnail" alt="" /> */}
-
-            <div className="content">
-                {/* <img src={ require()} className="channel-icon" alt="" /> */}
-
-              <div className="info">
-                <h4 className="title"></h4>
-                <p className="channel-name"></p>
-              </div>
-
-            </div>
-
-          </div>
-       
-    </div>
+        {
+          searches.map(search => {
+            return (
+              <SearchVideo key={search.id} search={search}/>
+            )
+          })
+        }
       </div>
         
 

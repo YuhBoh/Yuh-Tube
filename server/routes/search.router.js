@@ -6,14 +6,14 @@ const axios = require("axios"); //For backend
 
 router.get("/", (req, res) => {
   const search = req.query.search;
-  // console.log('SEARCH:', search); WORKS
+  console.log('SEARCH:', search);
 
-  let searchUrl = `${process.env.SEARCH_URL}part=${process.env.SEARCH_PART}&key=${process.env.KEY}&maxResults=${process.env.MAX_RESULTS}&p=${search}`;
+  let searchUrl = `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${process.env.KEY}&chart=${process.env.VIDEOS_CHART}&regionCode=${process.env.REGION_CODE}maxResults=${process.env.MAX_RESULTS}&p=${search}`;
 
   axios
     .get(searchUrl)
     .then((response) => {
-      console.log("RESPONSE:", response.data.items);
+      console.log("RESPONSE:", response.data);
 
       let dataArray = response.data.items;
       res.send({ dataArray });

@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import VideosList from './VideosList';
 import './UserPage.css';
 import VideoPlaylistList from '../VideoPlaylist/VideoPlaylistList';
-import SearchApi from '../Api/SearchApi';
+import SearchVideos from '../Nav/Middle/SearchVideos/SearchVideos';
 
 function UserPage() {
   useEffect(() => {
@@ -21,8 +21,9 @@ function UserPage() {
   }, [])
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
-  const playlists = useSelector((store) => store.playlists);
-  // console.log("store.playlist:", playlists)
+  const searches = useSelector(store => store.search);
+  console.log('SEARCHES:', searches.data)
+  // const searchThumbnail = searches.data.data.dataArray.snippet.thumbnails.high.url
 
   const dispatch = useDispatch();
 
@@ -33,7 +34,27 @@ function UserPage() {
           Videos
         </h3>
       </div>
-        <SearchApi />
+
+      <div className="videos-section">
+    <div className="video-container">
+      <div className="video">
+            {/* <img src={searchThumbnail} className="api-thumbnail" alt="" /> */}
+
+            <div className="content">
+                {/* <img src={ require()} className="channel-icon" alt="" /> */}
+
+              <div className="info">
+                <h4 className="title"></h4>
+                <p className="channel-name"></p>
+              </div>
+
+            </div>
+
+          </div>
+       
+    </div>
+      </div>
+        
 
       <div>
         <h3>

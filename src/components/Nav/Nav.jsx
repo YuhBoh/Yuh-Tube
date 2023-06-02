@@ -40,6 +40,7 @@ function Nav() {
         </div>
       </Link>
 
+    {/* THIS IS THE SEARCH BAR FOR API SEARCHES */}
     < Middle />
 
       <div className="right-section">

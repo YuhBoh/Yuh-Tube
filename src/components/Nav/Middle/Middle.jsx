@@ -4,22 +4,22 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function Middle() {
   const user = useSelector(store => store.user);
-  const search = useSelector(store => store.api)
 
   // FOR MIDDLE SECTION: SEARCHBAR
   const [searchInput, setSearchInput] = useState('');
   // console.log('SEARCHINPUT:', searchInput); WORKS
+  const dispatch = useDispatch();
 
-  const addApi = (event) => {
+  const getSearch = (event) => {
     event.preventDefault();
-    const dispatch = useDispatch();
 
-    dispatch({
-      type: 'SAGA/GET_API',
-      payload: searchInput
-    });
-    // GO TO SAGA
-
+    if (searchInput !== '') {
+      dispatch({
+        type: 'SAGA/GET_SEARCH',
+        payload: searchInput
+      });
+    }
+    // GO TO ROOT SAGA
     setSearchInput('');
   }
 
@@ -36,7 +36,7 @@ function Middle() {
           placeholder="Search"/>
 
         <button 
-          onClick={() => getApi}
+          onClick={getSearch}
           className="search-button">
           <img className="search-icon" src={require("../images/search.png")} alt="search" />
           <div className="tooltip">Search</div>

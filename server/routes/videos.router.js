@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route
  */
 router.get("/", (req, res) => {
-  // COMES FROM URL.SAGA.JS
+  // COMES FROM VIDEOS.SAGA.JS
 
   const sqlQuery = `
   SELECT id, video_url 

@@ -1,4 +1,4 @@
-const apiSearch = (state = [], action) => {
+const searchReducer = (state = [], action) => {
   switch (action.type) {
     case "REDUX/GET_SEARCH":
       return action.payload;
@@ -7,4 +7,4 @@ const apiSearch = (state = [], action) => {
   }
 };
 
-export default apiSearch;
+export default searchReducer;

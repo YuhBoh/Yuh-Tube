@@ -75,7 +75,7 @@
   border-style: solid;
   border-color: rgb(192, 192, 192);
   margin-right: 10px;
-
+  cursor: pointer;
 }
 
 .search-button,

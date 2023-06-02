@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import VideosList from './VideosList';
 import './UserPage.css';
 import VideoPlaylistList from '../VideoPlaylist/VideoPlaylistList';
+import SearchApi from '../Api/SearchApi';
 
 function UserPage() {
   useEffect(() => {
@@ -32,19 +33,23 @@ function UserPage() {
           Videos
         </h3>
       </div>
-          
-      <div className="video-grid">
-        <VideosList user={user}/>
-      </div>
+        <SearchApi />
 
-      <div className="playlist-section">
+      <div>
+        <h3>
+          Saved
+        </h3>
+      </div>
+          
+      <VideosList user={user}/>
+
+      <div id="playlist-section">
         <h3>
           Playlist
         </h3>
 
-        <div>
-          <VideoPlaylistList />
-        </div>
+      <VideoPlaylistList />
+
       </div>
     </>
   );

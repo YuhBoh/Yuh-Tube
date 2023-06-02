@@ -4,9 +4,9 @@ const router = express.Router();
 
 // POST route template
 router.post("/", (req, res) => {
-  const playlist = req.body;
+  const {name} = req.body;
   // console.log("PLAYLIST:", playlist); WORKS
-  const user = req.user;
+  const {id} = req.user;
   // console.log("USER:", user.id);
 
   // If you're already logged in, you can use req.user.id to insert as data.
@@ -20,7 +20,7 @@ router.post("/", (req, res) => {
   `;
 
   // Will insert values into sql
-  const sqlValues = [playlist.name, user.id];
+  const sqlValues = [name, id];
 
   pool
     .query(sqlText, sqlValues)

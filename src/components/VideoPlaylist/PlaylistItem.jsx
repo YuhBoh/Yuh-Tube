@@ -66,12 +66,12 @@ export default function PlaylistItem({playlist}) {
             <button 
             className="saveto-edit-btn" 
             onClick={() => setEditing(true)}>
-              <img src={ require("./images/edit-pen.png")} alt="" />
+              <img className="pen-img" src={ require("./images/edit-pen.png")} alt="" />
             </button>
             <button 
             className="saveto-delete-btn"
             onClick={() => deletePlaylists(playlist.id)}>
-              <img src={ require("./images/trash.png")} alt="" />
+              <img className="trash-img" src={ require("./images/trash.png")} alt="" />
             </button>
           </div>
         )}

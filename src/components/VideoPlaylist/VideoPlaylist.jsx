@@ -75,7 +75,7 @@ export default function VideoPlaylist() {
               <div className='bottom-container'>
 
                 <div className='create-title'>
-                    Name
+                  Name
                 </div>
                 
                 <div className='create-playlist'>

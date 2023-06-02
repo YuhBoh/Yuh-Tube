@@ -8,7 +8,7 @@ export default function VideoPlaylistList() {
   const playlists = useSelector((store) => store.playlists);
 
   return (
-    <>
+    <div>
       {
         playlists.map(playlist => {
           return (
@@ -16,6 +16,6 @@ export default function VideoPlaylistList() {
           )
         })
       }
-    </>
+    </div>
   )
 };

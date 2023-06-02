@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 // IMPORT VIDEOITEM.JSX
 import VideoItem from './VideoItem';
+import './UserPage.css';
 
 export default function VideosList() {
 
@@ -8,7 +9,7 @@ export default function VideosList() {
   console.log("VIDEO:", videos);
 
   return (
-    <>
+    <div className="video-grid">
       {
         videos.map(video => {
           return (
@@ -16,7 +17,7 @@ export default function VideosList() {
           )
         })
       }
-    </>
+    </div>
   )
 }
 

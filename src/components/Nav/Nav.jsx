@@ -1,25 +1,31 @@
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
+import '../Nav/Nav.css';
 import { useSelector, useDispatch } from 'react-redux';
 import Upload from './Upload/Upload';
+import Middle from './Middle/Middle';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+  const search = useSelector(store => store.api)
   const [openModal, setOpenModal] = useState(false);
 
+  // FOR MIDDLE SECTION: SEARCHBAR
   const [searchInput, setSearchInput] = useState('');
-  console.log('SEARCHINPUT:'. searchInput);
+  // console.log('SEARCHINPUT:', searchInput); WORKS
 
-  const addAPI = (event) => {
+  const addApi = (event) => {
     event.preventDefault();
     const dispatch = useDispatch();
 
     dispatch({
-      type: 'SAGA/ADD_API',
+      type: 'SAGA/GET_API',
       payload: searchInput
     });
+    // GO TO SAGA
+
+    setSearchInput('');
   }
 
   return (
@@ -34,29 +40,7 @@ function Nav() {
         </div>
       </Link>
 
-      {/* MIDDLE SECTION */}
-      <div className="middle-section">
-
-        <form onSubmit={addAPI}>
-          <input 
-            value={searchInput}
-            onChange={event => setSearchInput(event.target.value)}
-            className="search-bar" 
-            type="text" 
-            placeholder="Search"/>
-
-          <button className="search-button">
-            <img className="search-icon" src={ require("./images/search.png")} alt="search" />
-            <div className="tooltip">Search</div>
-          </button>
-        </form>
-
-        <button className="voice-search-button">
-          <img className="voice-search-icon" src={ require("./images/voice-search-icon.png")} alt="" />
-          <div className="tooltip">Search with your voice</div>
-        </button>
-
-      </div>
+    < Middle />
 
       <div className="right-section">
         {/* If no user is logged in, show these links */}

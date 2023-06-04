@@ -1,3 +1,7 @@
+.video-container {
+
+}
+
 .thumbnail-row {
   margin-bottom: 8px;
   position: relative;
@@ -5,7 +9,7 @@
 
 .api-thumbnail {
   width: 100%;
-  height: 100%;
+  height: 202px;
   object-fit: cover;
   object-position: center;
   cursor: pointer;

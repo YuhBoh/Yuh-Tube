@@ -1,4 +1,3 @@
-
 import './SearchVideo.css';
 
 function formatVideoCount(count) {
@@ -12,7 +11,7 @@ function formatVideoCount(count) {
 
 function SearchVideo(props) {
   const searchVideos=props.search;
-  console.log(searchVideos);
+  console.log("SEARCHVIDEOS:", searchVideos);
   const thumbnail=searchVideos.snippet.thumbnails.high.url;
   const title=searchVideos.snippet.title;
   const channelTitle=searchVideos.snippet.channelTitle.replace(/\s/g, '');

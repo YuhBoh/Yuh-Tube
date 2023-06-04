@@ -13,7 +13,7 @@ function Middle() {
   const getSearch = (event) => {
     event.preventDefault();
 
-    if (searchInput !== '') {
+    if (!searchInput == '') {
       dispatch({
         type: 'SAGA/GET_SEARCH',
         payload: searchInput

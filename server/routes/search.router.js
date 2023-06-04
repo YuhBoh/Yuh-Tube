@@ -11,6 +11,8 @@ router.get("/", (req, res) => {
 
   const videosUrl = `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${process.env.KEY}&chart=${process.env.VIDEOS_CHART}&regionCode=${process.env.REGION_CODE}&maxResults=${process.env.MAX_RESULTS}&videoCategoryId=${process.env.MOST_POPULAR_CATEGORY_ID}`;
 
+  const channelUrl = ``;
+
 
   axios
     .get(searchUrl)

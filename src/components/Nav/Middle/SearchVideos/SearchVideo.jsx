@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+
 import './SearchVideo.css';
 
 function SearchVideo(props) {
@@ -7,7 +7,8 @@ function SearchVideo(props) {
   const thumbnail=searchVideos.snippet.thumbnails.high.url;
   const title=searchVideos.snippet.title;
   const channelTitle=searchVideos.snippet.channelTitle;
-  const videoId=searchVideos.id
+  const videoId=searchVideos.id;
+  const channelThumbnail = searchVideos.channelThumbnail;
 
   return (
     <div className="video-container">
@@ -16,7 +17,7 @@ function SearchVideo(props) {
 
         <div className="content">
           <a href={`https://youtube.com/watch?v=${videoId}`}>
-            <img src={ require("./images/thumbnail.png")} className="channel-icon" alt="" />
+            <img src={channelThumbnail} className="channel-icon" alt="" />
           </a>
             
           <div className="info">

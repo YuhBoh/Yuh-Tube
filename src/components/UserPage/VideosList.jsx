@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 // IMPORT VIDEOITEM.JSX
 import VideoItem from './VideoItem';
 import './UserPage.css';
+import './VideosList.css';
 
 export default function VideosList() {
 

@@ -19,6 +19,13 @@ function UserPage() {
       type: 'SAGA/GET_PLAYLISTS'
     })
   }, [])
+
+  useEffect(() => {
+    dispatch({
+      type: ' SAGA/GET_SEARCH'
+    })
+  }, [])
+  
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const search = useSelector(store => store.search);

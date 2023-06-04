@@ -2,32 +2,57 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 require("dotenv").config();
-const axios = require("axios"); //For backend
+const axios = require("axios");
 
 router.get("/", (req, res) => {
   const search = req.query.search;
-  console.log('SEARCH:', search);
 
-  let searchUrl = `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${process.env.KEY}&chart=${process.env.VIDEOS_CHART}&regionCode=${process.env.REGION_CODE}maxResults=${process.env.MAX_RESULTS}&p=${search}`;
+  let searchUrl = `${process.env.SEARCH_URL}part=${process.env.SEARCH_PART}&key=${process.env.KEY}&maxResults=${process.env.MAX_RESULTS}&q=${search}`;
+
+  let videosUrl = `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${process.env.KEY}&chart=${process.env.VIDEOS_CHART}&regionCode=${process.env.REGION_CODE}&maxResults=${process.env.MAX_RESULTS}`;
 
   axios
     .get(searchUrl)
     .then((response) => {
-      console.log("RESPONSE:", response.data);
+      const dataArray = response.data.items;
+      const channelIds = dataArray.map((item) => item.snippet.channelId);
 
-      let dataArray = response.data.items;
-      res.send({ dataArray });
+      axios
+        .get(
+          `${process.env.CHANNELS_URL}part=${process.env.CHANNELS_PART}&key=${
+            process.env.KEY
+          }&id=${channelIds.join(",")}`
+        )
+        .then((channelResponse) => {
+          const channelDataArray = channelResponse.data.items;
+          const channelDetails = {}; // Object to store channelId: channel details mappings
+
+          channelDataArray.forEach((channel) => {
+            channelDetails[channel.id] = {
+              publishedAt: channel.snippet.publishedAt,
+              subscriberCount: channel.statistics.subscriberCount,
+              channelThumbnail: channel.snippet.thumbnails.default.url,
+            };
+          });
+
+          const videosWithDetails = dataArray.map((video) => ({
+            ...video,
+            channelThumbnail:channelDetails[video.snippet.channelId].channelThumbnail,
+            publishedAt:channelDetails[video.snippet.channelId].publishedAt,
+            subscriberCount:channelDetails[video.snippet.channelId].subscriberCount,
+          }));
+
+          res.send({ dataArray: videosWithDetails });
+        })
+        .catch((channelError) => {
+          console.log("CHANNEL ERROR:", channelError);
+          res.sendStatus(500);
+        });
     })
-    .catch((err) => {
+    .catch((error) => {
+      console.log("ERROR:", error);
       res.sendStatus(500);
     });
-
-  const sqlText = `
-  INSERT INTO "video"
-  ("thumbnail", "time", "channel_pic", "channel_title", "subscription_count", "published_at", "video_title")
-  VALUES
-  ($1, $2, $3, $4, $5, $6);
-  `;
 });
 
 module.exports = router;

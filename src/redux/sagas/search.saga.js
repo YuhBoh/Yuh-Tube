@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Get list of playlists from database and send to Redux for render
 function* getSearch(action) {
-  // console.log('ACTIONPAYLOAD:', action.payload); WORKS
+  console.log('ACTIONPAYLOAD:', action.payload);
   try {
     const data = yield axios.get(`/api/search?search=${action.payload}`);
     //GO TO SEARCH.ROUTER.JS

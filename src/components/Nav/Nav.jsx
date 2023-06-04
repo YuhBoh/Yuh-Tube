@@ -15,19 +15,6 @@ function Nav() {
   const [searchInput, setSearchInput] = useState('');
   // console.log('SEARCHINPUT:', searchInput); WORKS
 
-  const addApi = (event) => {
-    event.preventDefault();
-    const dispatch = useDispatch();
-
-    dispatch({
-      type: 'SAGA/GET_API',
-      payload: searchInput
-    });
-    // GO TO SAGA
-
-    setSearchInput('');
-  }
-
   return (
     // HEADER
     <div className="header">

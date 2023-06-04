@@ -14,13 +14,13 @@ function Sidebar() {
 
         <Link to="/user"
               className="links">
-          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
-            explore
+            <img className="sidebar-img" src={require("./images/shorts.png")} alt=""/>
+            shorts
         </Link>
 
         <Link to="/user"
               className="links">
-          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+          <img className="sidebar-img" src={require("./images/subscriptions.png")} alt=""/>
             Subscriptions
         </Link>
 
@@ -29,14 +29,14 @@ function Sidebar() {
       
         <Link to="/user"
               className="links">
-          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+          <img className="sidebar-img" src={require("./images/library.png")} alt=""/>
             Library
         </Link>
 
 
         <Link to="/user"
               className="links">
-          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+          <img className="sidebar-img" src={require("./images/history.png")} alt=""/>
             History
         </Link>
 
@@ -44,13 +44,13 @@ function Sidebar() {
 
         <Link to="/user"
               className="links">
-          <img className="sidebar-img"src={require("./images/home.png")} alt=""/>
+          <img className="sidebar-img"src={require("./images/yourvideos.png")} alt=""/>
             Your videos
         </Link>
 
         <Link to="/user"
               className="links">
-          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+          <img className="sidebar-img" src={require("./images/watchlater.png")} alt=""/>
             Watch later
         </Link>
        

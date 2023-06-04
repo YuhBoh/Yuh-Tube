@@ -1,7 +1,7 @@
 .videos-section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
   row-gap: 40px;
 }
 

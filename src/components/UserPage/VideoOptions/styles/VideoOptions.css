@@ -15,6 +15,10 @@ body.active-modal {
   cursor: pointer;
 }
 
+.title2 {
+  font-size: 14px;
+}
+
 .dots {
   padding-bottom: 3px;
 }
@@ -38,8 +42,8 @@ body.active-modal {
 }
 
 .options-container {
-  width: 80px;
-  height: 130px;
+  width: 70px;
+  height: 80px;
   margin-top: -20px;
   margin-left: 12%;
   border-radius: 12px;
@@ -51,16 +55,18 @@ body.active-modal {
   z-index: 101;
 }
 
-.close-container {
+.top-container {
   display: flex;
-  justify-content: flex-end;
-
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .close-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .delete-btn {

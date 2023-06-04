@@ -6,43 +6,56 @@ function Sidebar() {
   return (
     <>
       <div className="sidebar">
-        <div className="sidebar-link">
-          <Link 
-            to="/user"
-            className="sidebar-text">
-            <img src={require("./images/home.png")} alt=""/>
-            <div>Home</div>
-          </Link>
-          
-        </div>
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+          Home
+        </Link>
 
-        <div className="sidebar-link">
-          <img src="sidebar-icons/explore.svg" alt=""/>
-          <div>Explore</div>
-        </div>
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+            explore
+        </Link>
 
-        <div className="sidebar-link">
-          <img src="sidebar-icons/subscriptions.svg" alt=""/>
-          <div>Subscriptions</div>
-        </div>
-        
-        <div className="sidebar-link">
-          <img src="sidebar-icons/originals.svg" alt=""/>
-          <div>Originals</div>
-        </div>
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+            Subscriptions
+        </Link>
 
-        <div className="sidebar-link">
-          <img src="sidebar-icons/youtube-music.svg" alt=""/>
-          <div>Youtube Music</div>
-        </div>
+        {/* LINE HEERE */}
+        <hr className="seperator"/>
+      
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+            Library
+        </Link>
 
-        <div className="sidebar-link">
-          <img src="sidebar-icons/library.svg" alt=""/>
-          <div>Library</div>
-        </div>
+
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+            History
+        </Link>
+
+
+
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img"src={require("./images/home.png")} alt=""/>
+            Your videos
+        </Link>
+
+        <Link to="/user"
+              className="links">
+          <img className="sidebar-img" src={require("./images/home.png")} alt=""/>
+            Watch later
+        </Link>
+       
       </div>
     </>
-  );
+  )
 }
-
 export default Sidebar;

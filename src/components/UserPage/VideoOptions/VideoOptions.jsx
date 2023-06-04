@@ -48,7 +48,12 @@ export default function VideoOptions({video}, {user}) {
       {modal && (
         <div className="modal">  
           <div className="options-container">
-            <div className="close-container">
+            <div className="top-container">
+
+              <div className="title2">
+                <p>Options</p>
+              </div>
+
               {/* When clicked, will close modal */}
               <button className="close-btn"
                       onClick={toggleModal}
@@ -56,9 +61,7 @@ export default function VideoOptions({video}, {user}) {
               </button>
             </div>
 
-            <div className="title2">
-              <p>Options</p>
-            </div>
+            
         
             {/* When clicked will open 2nd modal and close first modal. */}
             <div>

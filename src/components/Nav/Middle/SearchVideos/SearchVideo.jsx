@@ -1,7 +1,7 @@
 import './SearchVideo.css';
 
 function formatVideoCount(count) {
-  if (count >= 1000 && count <= 1000000) {
+  if (count >= 1000 && count < 1000000) {
     return `${Math.floor(count / 1000)}K`;
   } else if (count >= 1000000) {
     return `${Math.floor(count / 1000000)}M`;
@@ -38,11 +38,11 @@ function SearchVideo(props) {
         </div>
             
         <div className="api-video-info">
-          <a href={`https://youtube.com/watch?v=${videoId}`}>
+          <a href={`https://youtube.com/watch?v=${videoId}`} target='_blank'>
             <p className="video-title">{title}</p>
           </a>
 
-          <a href={`https://www.youtube.com/@${channelTitle}`}>
+          <a href={`https://www.youtube.com/@${channelTitle}`} target='_blank'>
             <p className="video-author">
               {channelTitle}
             </p>

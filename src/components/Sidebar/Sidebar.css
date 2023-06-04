@@ -2,39 +2,47 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  top: 55px;
-
+  min-width: 224px;
+  height: calc(100hv - 60px);
+  padding-right: 10px;
   background-color: white;
-  width: 72px;
+  width: 224px;
   z-index: 100;
   padding-top: 5px;
 }
 
-.sidebar-link {
-  height: 74px;
+.links {
+  padding: 10px 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  text-transform: capitalize;
+  color: #1e1e1e;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.sidebar-link:hover {
+.links img {
+  height: 24px;
+  width: 24px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+.links:hover,
+.links.active {
   background-color: rgb(235, 235, 235);
   cursor: pointer;
 }
 
-.sidebar-link img {
-  height: 24px;
-  width: 24px;
-  margin-bottom: 5px;
-}
-
-.sidebar-link div {
+.links {
   font-family: Roboto, Arial;
-  font-size: 10px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.sidebar-text {
-  color: black;
-  text-decoration: none;
+.seperator {
+  border: none;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  margin: 10px
 }

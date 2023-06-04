@@ -48,6 +48,7 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
+            className='pwd-input'
             type="password"
             name="password"
             required
@@ -56,7 +57,7 @@ function LoginForm() {
           />
         </label>
       </div>
-      <div>
+      <div className='login-btn'>
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
     </form>

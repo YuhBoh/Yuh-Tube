@@ -50,8 +50,8 @@ export default function VideoOptions({video}, {user}) {
           <div className="options-container">
             <div className="top-container">
 
-              <div className="title2">
-                <p>Options</p>
+              <div>
+                <p className="title2">Options</p>
               </div>
 
               {/* When clicked, will close modal */}

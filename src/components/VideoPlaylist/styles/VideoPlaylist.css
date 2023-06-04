@@ -64,6 +64,10 @@ body.active-modal {
   cursor: pointer;
 }
 
+.save-btn:hover {
+  text-decoration: underline;
+}
+
 .close-button {
   background: transparent;
   border: none;

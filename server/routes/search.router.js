@@ -11,48 +11,66 @@ router.get("/", (req, res) => {
 
   const videosUrl = `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${process.env.KEY}&chart=${process.env.VIDEOS_CHART}&regionCode=${process.env.REGION_CODE}&maxResults=${process.env.MAX_RESULTS}&videoCategoryId=${process.env.MOST_POPULAR_CATEGORY_ID}`;
 
-  const channelUrl = ``;
-
-
   axios
     .get(searchUrl)
     .then((response) => {
       const dataArray = response.data.items;
+      const videoIds = dataArray.map((item) => item.id.videoId);
       const channelIds = dataArray.map((item) => item.snippet.channelId);
 
       axios
-        .get(
-          `${process.env.CHANNELS_URL}part=${process.env.CHANNELS_PART}&key=${
-            process.env.KEY
-          }&id=${channelIds.join(",")}`
+        .all([
+          axios.get(
+            `${process.env.CHANNELS_URL}part=${process.env.CHANNELS_PART}&key=${
+              process.env.KEY
+            }&id=${channelIds.join(",")}`
+          ),
+          axios.get(
+            `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${
+              process.env.KEY
+            }&id=${videoIds.join(",")}`
+          ),
+        ])
+        .then(
+          axios.spread((channelResponse, videoResponse) => {
+            const channelDataArray = channelResponse.data.items;
+            const videoDataArray = videoResponse.data.items;
+
+            const channelDetails = {}; // Object to store channelId: channel details mappings
+            const videoDetails = {}; // Object to store videoId: video details mappings
+
+            channelDataArray.forEach((channel) => {
+              channelDetails[channel.id] = {
+                publishedAt: channel.snippet.publishedAt,
+                subscriberCount: channel.statistics.subscriberCount,
+                videoCount: channel.statistics.videoCount,
+                channelThumbnail: channel.snippet.thumbnails.default.url,
+              };
+            });
+
+            videoDataArray.forEach((video) => {
+              videoDetails[video.snippet] = {
+                duration: video.contentDetails.duration,
+              };
+              console.log('DURATION:', videoDetails)
+            });
+
+            const videosWithDetails = dataArray.map((video) => ({
+              ...video,
+              channelThumbnail:
+                channelDetails[video.snippet.channelId].channelThumbnail,
+              publishedAt: channelDetails[video.snippet.channelId].publishedAt,
+              subscriberCount:
+                channelDetails[video.snippet.channelId].subscriberCount,
+              videoCount: channelDetails[video.snippet.channelId].videoCount,
+              duration: videoDetails[video.snippet.videoId].duration,
+            }));
+
+            res.send({ dataArray: videosWithDetails });
+          })
         )
-        .then((channelResponse) => {
-          const channelDataArray = channelResponse.data.items;
-          const channelDetails = {}; // Object to store channelId: channel details mappings
-
-          channelDataArray.forEach((channel) => {
-            channelDetails[channel.id] = {
-              publishedAt: channel.snippet.publishedAt,
-              subscriberCount: channel.statistics.subscriberCount,
-              videoCount: channel.statistics.videoCount,
-              channelThumbnail: channel.snippet.thumbnails.default.url,
-            };
-          });
-
-          const videosWithDetails = dataArray.map((video) => ({
-            ...video,
-            channelThumbnail:
-              channelDetails[video.snippet.channelId].channelThumbnail,
-            publishedAt: channelDetails[video.snippet.channelId].publishedAt,
-            subscriberCount:
-              channelDetails[video.snippet.channelId].subscriberCount,
-            videoCount: channelDetails[video.snippet.channelId].videoCount,
-          }));
-
-          res.send({ dataArray: videosWithDetails });
-        })
-        .catch((channelError) => {
-          console.log("CHANNEL ERROR:", channelError);
+        .catch((error) => {
+          console.log("API ERROR:", error);
           res.sendStatus(500);
         });
     })

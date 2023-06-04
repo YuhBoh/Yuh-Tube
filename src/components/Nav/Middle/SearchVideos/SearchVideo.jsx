@@ -9,6 +9,29 @@ function formatVideoCount(count) {
   return count;
 }
 
+  // Format the duration based on your desired format
+  function formatDuration(duration) {
+  // Extract the hours, minutes, and seconds from the duration string
+  const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+  const hours = match[1] ? parseInt(match[1]) : 0;
+  const minutes = match[2] ? parseInt(match[2]) : 0;
+  const seconds = match[3] ? parseInt(match[3]) : 0;
+
+  // Format the duration based on your desired format
+  let formattedDuration = '';
+  if (hours > 0) {
+    formattedDuration += `${hours}:`;
+  }
+  if (minutes > 0) {
+    formattedDuration += `${minutes}:`;
+  }
+  if (seconds > 0) {
+    formattedDuration += `${seconds}`;
+  }
+
+  return formattedDuration.trim();
+  }
+
 function SearchVideo(props) {
   const searchVideos=props.search;
   console.log("SEARCHVIDEOS:", searchVideos);
@@ -18,6 +41,10 @@ function SearchVideo(props) {
   const videoId=searchVideos.id.videoId;
   const channelThumbnail = searchVideos.channelThumbnail;
   const videoCount = searchVideos.videoCount;
+  const duration = searchVideos.duration;
+
+  const videoDuration = formatDuration(duration);
+  
 
   const newVideoCount = formatVideoCount(videoCount);
 
@@ -27,6 +54,7 @@ function SearchVideo(props) {
 
       <div className="thumbnail-row">
         <img src={thumbnail} className="api-thumbnail" alt="" />
+        <div class="video-time">{videoDuration}</div>
       </div>  
 
       <div className="video-info-grid">

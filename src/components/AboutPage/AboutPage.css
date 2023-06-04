@@ -5,12 +5,15 @@ li {
 
 .about-container {
   padding-top: 80px;
-  padding-left: 280px;
-  width: 50%;
+  width: 30%;
   text-align: center;
   margin: auto;
 }
 
 p {
   font-size: 25px;
+}
+
+ul {
+  padding: 0;
 }

@@ -15,7 +15,7 @@ function SearchVideo(props) {
   console.log(searchVideos);
   const thumbnail=searchVideos.snippet.thumbnails.high.url;
   const title=searchVideos.snippet.title;
-  const channelTitle=searchVideos.snippet.channelTitle;
+  const channelTitle=searchVideos.snippet.channelTitle.replace(/\s/g, '');
   const videoId=searchVideos.id.videoId;
   const channelThumbnail = searchVideos.channelThumbnail;
   const videoCount = searchVideos.videoCount;
@@ -25,29 +25,36 @@ function SearchVideo(props) {
 
   return (
     <div className="video-container">
-      <div className="video">
+
+      <div className="thumbnail-row">
         <img src={thumbnail} className="api-thumbnail" alt="" />
+      </div>  
 
-        <div className="content">
-          <a href={`https://youtube.com/watch?v=${videoId}`}>
-            <img src={channelThumbnail} className="channel-icon" alt="" />
+      <div className="video-info-grid">
+
+        <div className="channel-picture">
+          <a href={`https://www.youtube.com/@${channelTitle}`}>
+            <img src={channelThumbnail} className="profile-picture" alt="" />
           </a>
+        </div>
             
-          <div className="info">
-            <a href={`https://youtube.com/watch?v=${videoId}`}>
-              <h4 className="title">{title}</h4>
-            </a>
+        <div className="api-video-info">
+          <a href={`https://youtube.com/watch?v=${videoId}`}>
+            <p className="video-title">{title}</p>
+          </a>
 
-            <p className="channel-name">
+          <a href={`https://www.youtube.com/@${channelTitle}`}>
+            <p className="video-author">
               {channelTitle}
             </p>
-            <p class="video-stats">{newVideoCount} views</p>
-          </div>
+          </a>
+          
 
+          <p className="video-stats">{newVideoCount} views</p>
         </div>
 
       </div>
-       
+        
     </div>
   )
 

@@ -9,6 +9,7 @@ function SearchVideo(props) {
   const channelTitle=searchVideos.snippet.channelTitle;
   const videoId=searchVideos.id;
   const channelThumbnail = searchVideos.channelThumbnail;
+  const videoCount = searchVideos.videoCount;
 
   return (
     <div className="video-container">
@@ -28,10 +29,11 @@ function SearchVideo(props) {
             <p className="channel-name">
               {channelTitle}
             </p>
+            <p class="video-stats">{videoCount} views</p>
           </div>
 
         </div>
-
+        
       </div>
        
     </div>

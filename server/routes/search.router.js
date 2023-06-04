@@ -31,15 +31,19 @@ router.get("/", (req, res) => {
             channelDetails[channel.id] = {
               publishedAt: channel.snippet.publishedAt,
               subscriberCount: channel.statistics.subscriberCount,
+              videoCount: channel.statistics.videoCount,
               channelThumbnail: channel.snippet.thumbnails.default.url,
             };
           });
 
           const videosWithDetails = dataArray.map((video) => ({
             ...video,
-            channelThumbnail:channelDetails[video.snippet.channelId].channelThumbnail,
-            publishedAt:channelDetails[video.snippet.channelId].publishedAt,
-            subscriberCount:channelDetails[video.snippet.channelId].subscriberCount,
+            channelThumbnail:
+              channelDetails[video.snippet.channelId].channelThumbnail,
+            publishedAt: channelDetails[video.snippet.channelId].publishedAt,
+            subscriberCount:
+              channelDetails[video.snippet.channelId].subscriberCount,
+            videoCount: channelDetails[video.snippet.channelId].videoCount,
           }));
 
           res.send({ dataArray: videosWithDetails });

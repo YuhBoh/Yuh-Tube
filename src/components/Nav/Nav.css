@@ -172,3 +172,20 @@
   height: 24px;
   width: 24px;
 }
+
+.notifications-icon {
+  height: 24px;
+}
+
+.notifications-icon-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+
+.current-user-picture {
+  height: 32px;
+  border-radius: 16px;
+  cursor: pointer;
+}

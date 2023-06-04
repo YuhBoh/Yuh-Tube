@@ -49,7 +49,11 @@ function Nav() {
             {openModal && <Upload 
             className="upload-pop"
             closeModal={setOpenModal} />}
-            
+
+            <div className="notifications-icon-container">
+              <img className="notifications-icon" src={require("./images/notification.png")} alt=""/>
+              <div className="tooltip">Notifications</div>
+            </div>
 
             <Link className="nav-link" to="/info">
               Info Page

@@ -23,7 +23,7 @@
 }
 
 .nav-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: black;
   padding-left: 10px;
@@ -62,7 +62,6 @@
   border-color: rgb(192, 192, 192);
   border-radius: 2px;
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, .05);
-  width: 0;
   margin: 0;
   border-radius: 40px 0 0 40px;
 }

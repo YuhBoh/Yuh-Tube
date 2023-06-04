@@ -25,7 +25,7 @@ function UserPage() {
       type: ' SAGA/GET_SEARCH'
     })
   }, [])
-  
+
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const search = useSelector(store => store.search);
@@ -36,38 +36,40 @@ function UserPage() {
 
   return (
     <>
-      <div>
-        <h3>
-          Videos
-        </h3>
-      </div>
+      <div className="userpage-container">
+        <div>
+          <h3>
+            Videos
+          </h3>
+        </div>
 
-      <div className="videos-section">
-        {
-          searches.map(search => {
-            return (
-              <SearchVideo key={search.id} search={search}/>
-            )
-          })
-        }
-      </div>
-        
-
-      <div>
-        <h3>
-          Saved
-        </h3>
-      </div>
+        <div className="videos-section">
+          {
+            searches.map(search => {
+              return (
+                <SearchVideo key={search.id} search={search}/>
+              )
+            })
+          }
+        </div>
           
-      <VideosList user={user}/>
 
-      <div id="playlist-section">
-        <h3>
-          Playlist
-        </h3>
+        <div>
+          <h3>
+            Saved
+          </h3>
+        </div>
+            
+        <VideosList user={user}/>
 
-      <VideoPlaylistList />
+        <div id="playlist-section">
+          <h3>
+            Playlist
+          </h3>
 
+        <VideoPlaylistList />
+
+        </div>
       </div>
     </>
   );

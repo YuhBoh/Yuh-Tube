@@ -23,8 +23,8 @@
 }
 
 .links img {
-  height: 24px;
-  width: 23px;
+  height: 20px;
+  width: 20px;
   margin-right: 20px;
   margin-bottom: 5px;
 }
@@ -33,6 +33,7 @@
 .links.active {
   background-color: rgb(235, 235, 235);
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .links {
@@ -41,8 +42,14 @@
   font-weight: 400;
 }
 
+.seperator-top {
+  border: none;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  margin-top: -5px;
+}
+
 .seperator {
   border: none;
   border-bottom: 1px solid rgb(235, 235, 235);
-  margin: 10px
+  margin: 10px;
 }

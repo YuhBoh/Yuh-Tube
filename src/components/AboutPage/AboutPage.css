@@ -1,0 +1,16 @@
+li {
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+.about-container {
+  padding-top: 80px;
+  padding-left: 280px;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+p {
+  font-size: 25px;
+}

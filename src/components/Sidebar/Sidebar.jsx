@@ -6,6 +6,9 @@ function Sidebar() {
   return (
     <>
       <div className="sidebar">
+
+        <hr className="seperator-top"/>
+
         <Link to="/user"
               className="links">
           <img className="sidebar-img" src={require("./images/home.png")} alt=""/>

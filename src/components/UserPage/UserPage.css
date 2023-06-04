@@ -1,3 +1,7 @@
+.userpage-container {
+  padding-top: 80px;
+  padding-left: 280px;
+}
 .videos-section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

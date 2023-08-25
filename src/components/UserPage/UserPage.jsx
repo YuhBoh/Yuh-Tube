@@ -39,7 +39,7 @@ function UserPage() {
       <div className="userpage-container">
         <div>
           <h3>
-            Videos hi
+            Videos
           </h3>
         </div>
 

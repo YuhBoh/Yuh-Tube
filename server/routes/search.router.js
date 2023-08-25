@@ -49,7 +49,7 @@ router.get("/", (req, res) => {
             });
 
             videoDataArray.forEach((video) => {
-              videoDetails[video.snippet] = {
+              videoDetails[video.id] = {
                 duration: video.contentDetails.duration,
               };
               console.log('DURATION:', videoDetails)
@@ -63,7 +63,7 @@ router.get("/", (req, res) => {
               subscriberCount:
                 channelDetails[video.snippet.channelId].subscriberCount,
               videoCount: channelDetails[video.snippet.channelId].videoCount,
-              duration: videoDetails[video.snippet.videoId].duration,
+              duration: videoDetails[video.id.videoId].duration,
             }));
 
             res.send({ dataArray: videosWithDetails });

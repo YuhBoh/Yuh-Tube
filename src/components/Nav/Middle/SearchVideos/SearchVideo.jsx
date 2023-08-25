@@ -9,28 +9,57 @@ function formatVideoCount(count) {
   return count;
 }
 
-  // Format the duration based on your desired format
-  function formatDuration(duration) {
-  // Extract the hours, minutes, and seconds from the duration string
-  const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-  const hours = match[1] ? parseInt(match[1]) : 0;
-  const minutes = match[2] ? parseInt(match[2]) : 0;
-  const seconds = match[3] ? parseInt(match[3]) : 0;
-
-  // Format the duration based on your desired format
-  let formattedDuration = '';
-  if (hours > 0) {
-    formattedDuration += `${hours}:`;
-  }
-  if (minutes > 0) {
-    formattedDuration += `${minutes}:`;
-  }
-  if (seconds > 0) {
-    formattedDuration += `${seconds}`;
-  }
-
-  return formattedDuration.trim();
-  }
+const formatDuration = (time) => {
+    const timeArray = time.split("");
+    let solvedArray = [];
+    let hourArray = [];
+    let minuteArray = [];
+    let secondArray = [];
+    for (let char of timeArray) {
+        if (char === "H") {
+            let index = timeArray.indexOf("H") - 1;
+            while (!isNaN(Number(timeArray[index]))) {
+                hourArray.push(timeArray[index]);
+                index -= 1;
+            }
+            hourArray.reverse();
+            hourArray.push(":");
+        }
+        else if (char === "M") {
+            let index = timeArray.indexOf("M") - 1;
+            while (!isNaN(Number(timeArray[index]))) {
+                minuteArray.push(timeArray[index]);
+                index -= 1;
+            }
+            if (minuteArray.length < 2) {
+                minuteArray.push("0");
+            }
+            minuteArray.reverse();
+            minuteArray.push(":");
+        }
+        else if (char === "S") {
+            let index = timeArray.indexOf("S") - 1;
+            while (!isNaN(Number(timeArray[index]))) {
+                secondArray.push(timeArray[index]);
+                index -= 1;
+            }
+            if (secondArray.length < 2) {
+                secondArray.push("0");
+            }
+            secondArray.reverse();
+        }
+    }
+    if (timeArray.includes("H") && minuteArray.length < 1) {
+        minuteArray.push("0", "0", ":");
+    }
+    if (!timeArray.includes("H") && !timeArray.includes("M")) {
+        secondArray.unshift("0", ":");
+    }
+    console.log(hourArray);
+    console.log(minuteArray);
+    console.log(secondArray);
+    return solvedArray.concat(hourArray, minuteArray, secondArray).join("");
+};
 
 function SearchVideo(props) {
   const searchVideos=props.search;
@@ -44,6 +73,7 @@ function SearchVideo(props) {
   const duration = searchVideos.duration;
 
   const videoDuration = formatDuration(duration);
+  console.log("DURATION:", duration);
   
 
   const newVideoCount = formatVideoCount(videoCount);

@@ -19,9 +19,9 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>
+          <h2 className="landing-title">
             Yuh-Tubers!
-          </p>
+          </h2>
         </div>
         <div className="grid-col grid-col_4">
           <RegisterForm />

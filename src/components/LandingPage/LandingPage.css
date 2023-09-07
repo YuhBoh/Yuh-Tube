@@ -78,3 +78,8 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+.landing-title {
+  margin-left: -7px;
+  margin-top: -10px;
+}

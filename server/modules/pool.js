@@ -26,9 +26,10 @@ if (process.env.DATABASE_URL) {
 // also running on our computer (localhost)
 else {
     pool = new pg.Pool({
-        host: 'localhost',
-        port: 5432,
-        database: 'solo-project',   // 	💥 Change this to the name of your database!
+        // host: 'localhost',
+        // port: 5432,
+        // database: 'solo-project',   // 	💥 Change this to the name of your database!
+    connectionString: process.env.POSTGRES_URL + "?sslmode=require",
     });
 }
 

@@ -29,7 +29,7 @@ else {
         host: 'localhost',
         port: 5432,
         database: 'solo-project',   // 	💥 Change this to the name of your database!
-        // connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+        connectionString: process.env.POSTGRES_URL + "?sslmode=require",
     });
 }
 

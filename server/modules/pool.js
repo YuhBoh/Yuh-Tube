@@ -29,7 +29,7 @@ else {
         host: 'localhost',
         port: 5432,
         database: 'solo-project',   // 	💥 Change this to the name of your database!
-        connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+        postgres://solo_project_user:71fhKUaSC1elKt8SfPQt1QKMH4l0lwta@dpg-cjtotofjbvhs73asdvag-a.oregon-postgres.render.com/solo_project
     });
 }
 

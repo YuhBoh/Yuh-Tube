@@ -27,7 +27,7 @@ CREATE TABLE video (
 CREATE TABLE user_video (
 	id SERIAL PRIMARY KEY,
 	user_id int, 
-	foreign key (user_id) references user(id),
+	foreign key (user_id) references "user"(id),
 	video_id int, 
 	foreign key (video_id) references video(id)
 );
@@ -36,7 +36,7 @@ CREATE TABLE playlist (
 	id SERIAL PRIMARY KEY,
 	playlist_name Varchar (255),
 	user_id int, 
-	foreign key (user_id) references user(id)
+	foreign key (user_id) references "user"(id)
 );
 
 CREATE TABLE playlist_video (

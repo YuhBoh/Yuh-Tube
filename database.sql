@@ -18,14 +18,6 @@ CREATE TABLE user_profile (
 	FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
 
-CREATE TABLE user_profile_video (
-	id SERIAL PRIMARY KEY,
-	user_profile_id int, 
-	foreign key (user_profile_id) references user_profile(id),
-	video_id int, 
-	foreign key (video_id) references video(id)
-);
-
 CREATE TABLE video (
 	id SERIAL PRIMARY KEY,
 	video_url Varchar (1000),
@@ -35,6 +27,14 @@ CREATE TABLE video (
 	video_author Varchar (255),
 	video_subscribers Integer,
 	video_stats Varchar (255) 
+);
+
+CREATE TABLE user_profile_video (
+	id SERIAL PRIMARY KEY,
+	user_profile_id int, 
+	foreign key (user_profile_id) references user_profile(id),
+	video_id int, 
+	foreign key (video_id) references video(id)
 );
 
 CREATE TABLE playlist (

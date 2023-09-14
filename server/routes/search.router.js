@@ -1,6 +1,6 @@
 const express = require("express");
 const pool = require("../modules/pool");
-const router = express.Router();
+ const router = express.Router();
 require("dotenv").config();
 const axios = require("axios");
 
@@ -8,10 +8,48 @@ router.get("/", (req, res) => {
   const search = req.query.search;
 
   const searchUrl = `${process.env.SEARCH_URL}part=${process.env.SEARCH_PART}&key=${process.env.KEY}&maxResults=${process.env.MAX_RESULTS}&q=${search}`;
+  // that means this: process.env.SEARCH_URL is undefined
+  // and this is undefined: process.env.SEARCH_PART
+  // etc etc
+
+// That's step four of the process:
+// Okay, there’s basically four steps:
+
+// Make sure the app is set up to talk to the database once deployed.
+
+// Deploy the app to heroku
+
+// Deploy the database (to render.com or neon.tech)
+
+// Set environment variables (secrets) in heroku <- we found the problem
+
+
+// process.env.SEARCH_URL means: go to my computers environment, and find the environment variable called: SEARCH_URL
+
+// on your computer, you probably set environment variables (ultra secret secrets) in a .env file
+// we keep that super secret, and out of git (you don't want to share the secrets!)
+
+// So, when we push to heroku, it doesn't have our secrets!
+
+// You need to make a list of anything you have in code thats process.env.something
+// VIDEOS_URL
+// VIDEOS_PART
+// CHANNELS_URL,
+// etc..
+
+// grab those variable names, and their values (the values are likely in your .env file)
+// Do you have a .env file?
+
+// Your good :)
+// Some of those super secret secrets aren't that secret, like VIDEOS_URL
+// Some of them (any passwords or API keys) are really top secret
 
   const videosUrl = `${process.env.VIDEOS_URL}part=${process.env.VIDEOS_PART}&key=${process.env.KEY}&chart=${process.env.VIDEOS_CHART}&regionCode=${process.env.REGION_CODE}&maxResults=${process.env.MAX_RESULTS}&videoCategoryId=${process.env.MOST_POPULAR_CATEGORY_ID}`;
 
   axios
+    // you try searching this url: searchUrl
+    // that's showing up as undefined in your deploy version
+    // or, more accuratly, the pieces are showing up as undefined
     .get(searchUrl)
     .then((response) => {
       const dataArray = response.data.items;

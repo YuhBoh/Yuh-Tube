@@ -1,6 +1,18 @@
 # Deployed Project Link (Heroku)
 https://yuh-tube-95172b15b991.herokuapp.com/#/user
 
+# How to use
+1. Look for whatever videos you want in the search bar (e.g. dogs, cats, etc.)
+2. Click on video. (should open new webpage)
+3. Copy link of the video.
+4. paste link into the Upload Video icon (top right).
+5. Submit
+6. To create playlist, click on horizontal dots on video you just saved.
+7. Click save
+8. Enter playlist name. (pencil icon to edit, trash icon to delete).
+9. Click Submit.
+10. Congrats you made a new playlist!
+
 # Prime Solo Project Starting Repo
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 

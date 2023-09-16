@@ -52,6 +52,9 @@ router.get("/", (req, res) => {
     // or, more accuratly, the pieces are showing up as undefined
     .get(searchUrl)
     .then((response) => {
+      console.log("searchUrl successful:", searchUrl);
+      // now, if you run it on your computer, and it works, we can just look for "searchUrl successful" in terminal, and grab the "good" verson of the URL to compare.
+      // Want to restart the local server, run it, and see if we can grab the value?
       const dataArray = response.data.items;
       const videoIds = dataArray.map((item) => item.id.videoId);
       const channelIds = dataArray.map((item) => item.snippet.channelId);
